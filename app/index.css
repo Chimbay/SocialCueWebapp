@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.upper-nav {
+    padding: 10px 20px;
+    margin: auto;
+    width: 95%;
+    /*     border-bottom: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.lower-nav {
+    margin-left: 2.5%;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 2.5%;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 3;
+    gap: 10px;
+}
+
+.achievement-button {
+    grid-column: span 2;
+    padding: 10px 20px;
+}
+
+.experiences-button {
+    width: 80px;
+}
