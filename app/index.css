@@ -9,7 +9,7 @@
     margin: 10px 2.5%;
 }
 
-.button-container {
+.experiences-button-container {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 3;

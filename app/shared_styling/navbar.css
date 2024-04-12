@@ -15,3 +15,10 @@
 .lower-nav {
     margin-left: 2.5%;
 }
+
+.nav-button {
+    text-decoration: none;
+    padding: 0 20px;
+    background-color: #ffd6d6;
+    color: black;
+}
