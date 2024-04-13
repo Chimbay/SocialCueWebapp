@@ -8,7 +8,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
 const { FaceLandmarker, FilesetResolver, DrawingUtils } = vision;
 const demosSection = document.getElementById("demos");
@@ -19,7 +18,6 @@ let runningMode = "IMAGE";
 let enableWebcamButton;
 let webcamRunning = false;
 const videoWidth = 480;
-
 // Before we can use HandLandmarker class we must wait for it to finish
 // loading. Machine Learning models can be large and take a moment to
 // get everything needed to run.
@@ -37,7 +35,66 @@ async function createFaceLandmarker() {
     demosSection.classList.remove("invisible");
 }
 createFaceLandmarker();
-
+/********************************************************************
+// Demo 1: Grab a bunch of images from the page and detection them
+// upon click.
+********************************************************************/
+// In this demo, we have put all our clickable images in divs with the
+// CSS class 'detectionOnClick'. Lets get all the elements that have
+// this class.
+const imageContainers = document.getElementsByClassName("detectOnClick");
+// Now let's go through all of these and add a click event listener.
+for (let imageContainer of imageContainers) {
+    // Add event listener to the child element whichis the img element.
+    imageContainer.children[0].addEventListener("click", handleClick);
+}
+// When an image is clicked, let's detect it and display results!
+async function handleClick(event) {
+    if (!faceLandmarker) {
+        console.log("Wait for faceLandmarker to load before clicking!");
+        return;
+    }
+    if (runningMode === "VIDEO") {
+        runningMode = "IMAGE";
+        await faceLandmarker.setOptions({ runningMode });
+    }
+    // Remove all landmarks drawed before
+    const allCanvas = event.target.parentNode.getElementsByClassName("canvas");
+    for (var i = allCanvas.length - 1; i >= 0; i--) {
+        const n = allCanvas[i];
+        n.parentNode.removeChild(n);
+    }
+    // We can call faceLandmarker.detect as many times as we like with
+    // different image data each time. This returns a promise
+    // which we wait to complete and then call a function to
+    // print out the results of the prediction.
+    const faceLandmarkerResult = faceLandmarker.detect(event.target);
+    const canvas = document.createElement("canvas");
+    canvas.setAttribute("class", "canvas");
+    canvas.setAttribute("width", event.target.naturalWidth + "px");
+    canvas.setAttribute("height", event.target.naturalHeight + "px");
+    canvas.style.left = "0px";
+    canvas.style.top = "0px";
+    canvas.style.width = `${event.target.width}px`;
+    canvas.style.height = `${event.target.height}px`;
+    event.target.parentNode.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+    const drawingUtils = new DrawingUtils(ctx);
+    for (const landmarks of faceLandmarkerResult.faceLandmarks) {
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_TESSELATION, { color: "#C0C0C070", lineWidth: 1 });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYE, { color: "#FF3030" });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYEBROW, { color: "#FF3030" });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYE, { color: "#30FF30" });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYEBROW, { color: "#30FF30" });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_FACE_OVAL, { color: "#E0E0E0" });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LIPS, {
+            color: "#E0E0E0"
+        });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_IRIS, { color: "#FF3030" });
+        drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_IRIS, { color: "#30FF30" });
+    }
+    drawBlendShapes(imageBlendShapes, faceLandmarkerResult.faceBlendshapes);
+}
 /********************************************************************
 // Demo 2: Continuously grab image from webcam stream and detect it.
 ********************************************************************/
@@ -81,11 +138,9 @@ function enableCam(event) {
         video.addEventListener("loadeddata", predictWebcam);
     });
 }
-
 let lastVideoTime = -1;
 let results = undefined;
 const drawingUtils = new DrawingUtils(canvasCtx);
-
 async function predictWebcam() {
     const radio = video.videoHeight / video.videoWidth;
     video.style.width = videoWidth + "px";
@@ -94,20 +149,16 @@ async function predictWebcam() {
     canvasElement.style.height = videoWidth * radio + "px";
     canvasElement.width = video.videoWidth;
     canvasElement.height = video.videoHeight;
-
     // Now let's start detecting the stream.
     if (runningMode === "IMAGE") {
         runningMode = "VIDEO";
         await faceLandmarker.setOptions({ runningMode: runningMode });
     }
-
     let startTimeMs = performance.now();
-
     if (lastVideoTime !== video.currentTime) {
         lastVideoTime = video.currentTime;
         results = faceLandmarker.detectForVideo(video, startTimeMs);
     }
-
     if (results.faceLandmarks) {
         for (const landmarks of results.faceLandmarks) {
             drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_TESSELATION, { color: "#C0C0C070", lineWidth: 1 });
@@ -128,34 +179,88 @@ async function predictWebcam() {
     }
 }
 
+// --------
+// Define emotion profiles with feature weights
+const emotionProfiles = {
+    happiness: {
+        mouthSmileRight: 0.7892182916,
+        mouthSmileLeft: 0.785819155,
+        mouthUpperUpRight: 0.6961585969,
+        mouthUpperUpLeft: 0.6667970479,
+        mouthLowerDownRight: 0.4772540823,
+        eyeSquintLeft: 0.3965499461
+    }
+};
+
+
+
+// Calculate emotion scores based on feature values
+function calculateEmotionScores(featureValues) {
+    const emotionScores = {};
+
+    // Iterate over emotion profiles
+    for (const [emotion, profile] of Object.entries(emotionProfiles)) {
+        let score = 0;
+
+        // Iterate over features and calculate weighted sum
+        for (const [feature, weight] of Object.entries(profile)) {
+            if (feature in featureValues) {
+                score += weight * featureValues[feature];
+            }
+        }
+
+        emotionScores[emotion] = score;
+    }
+
+    return emotionScores;
+}
+
+// Predict emotion based on calculated scores
+function predictEmotion(featureValues) {
+    const emotionScores = calculateEmotionScores(featureValues);
+
+    // Find emotion with highest score
+    let predictedEmotion = null;
+    let maxScore = -Infinity;
+    for (const [emotion, score] of Object.entries(emotionScores)) {
+        if (score > maxScore) {
+            maxScore = score;
+            predictedEmotion = emotion;
+        }
+    }
+
+    return predictedEmotion;
+}
+
 function drawBlendShapes(el, blendShapes) {
+
     if (!blendShapes.length) {
         return;
     }
-    console.log(blendShapes[0]);
-    let htmlMaker = "";
 
     
+    // Holds the feature and the values
+    const featureValues = {
+    };
+    blendShapes[0].categories.map((shape) => {
+        const obj = shape;
+        featureValues[shape.categoryName] = obj.score;
+    });
+    
+    let htmlMaker = "";
+    const predictedEmotions = predictEmotion(featureValues);
+    const predictedScore = calculateEmotionScores(featureValues);
+    console.log(predictedEmotions);
+    console.log(predictedScore);
 
-    // blendShapes[0].categories.map((shape) => {
-    //     htmlMaker += `
-    //   <li class="blend-shapes-item">
-    //     <span class="blend-shapes-label">${shape.displayName || shape.categoryName}</span>
-    //     <span class="blend-shapes-value" style="width: calc(${+shape.score * 100}% - 160px)">${(+shape.score).toFixed(4)}</span>
-    //   </li>
-    // `;
-    // });
-
-    let angryScore = blendShapes[0].categories[2].score + blendShapes[0].categories[3].score;
-    console.log(`Angry score: ${angryScore}`);
-
-    let htmlConfidence = "";
-    htmlMaker += `
-        <li class="confidenceLevel">
-            <span class="confidence">${"Anger?"}</span>
-            <span class="levels" style="width: calc(${+angryScore * 100}% - 160px)">${(+angryScore).toFixed(4)}</span>
-        </li>
-    `;
+    for (const [emotion, value] of Object.entries(predictedScore)) {
+        htmlMaker += `
+            <li class="blend-shapes-item">
+            <span class="blend-shapes-label">${emotion}</span>
+            <span class="blend-shapes-value" style="width: calc(${value* 100}% - 120px)">${value.toFixed(4)}</span>
+            </li>
+        `;
+    }
 
     el.innerHTML = htmlMaker;
 }
