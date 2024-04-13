@@ -27,41 +27,27 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 
 @use "@material";
-
-/*
-------------------------------------------------
-  Main Page
-------------------------------------------------
-*/
-
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: helvetica, arial, sans-serif;
+  margin: 2em;
+  color: #3d3d3d;
+  --mdc-theme-primary: #007f8b;
+  --mdc-theme-on-primary: #f1f3f4;
 }
 
-.navBar {
-  background-color: #007bff;
-  color: #fff;
-  padding: 5px 0;
-}
-#navHeading {
-  padding: 5px;
-  text-align: left;
+h1 {
+  font-style: italic;
+  color: #ff6f00;
+  color: #007f8b;
 }
 
-#navOptions a{
-  text-decoration: none;
-  color:white;
-  padding: 5px;
+h2 {
+  clear: both;
 }
 
-
-/*
-------------------------------------------------
-  Visual effects of camera
-------------------------------------------------
-*/
+em {
+  font-weight: bold;
+}
 
 video {
   clear: both;
@@ -69,6 +55,16 @@ video {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
+}
+
+section {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+header,
+footer {
+  clear: both;
 }
 
 .removed {
