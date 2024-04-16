@@ -3,31 +3,13 @@
     padding: 0;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.upper-nav {
-    padding: 10px 20px;
-    margin: auto;
-    width: 95%;
-    /*     border-bottom: 1px solid black; */
-    display: flex;
-    justify-content: space-between;
-}
-
-.lower-nav {
-    margin-left: 2.5%;
-}
-
 .main-content {
     display: flex;
     justify-content: space-between;
     margin: 10px 2.5%;
 }
 
-.button-container {
+.experiences-button-container {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 3;

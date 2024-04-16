@@ -1,0 +1,24 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.upper-nav {
+    padding: 10px 20px;
+    margin: auto;
+    width: 95%;
+    /*     border-bottom: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.lower-nav {
+    margin-left: 2.5%;
+}
+
+.nav-button {
+    text-decoration: none;
+    padding: 0 20px;
+    background-color: #ffd6d6;
+    color: black;
+}
