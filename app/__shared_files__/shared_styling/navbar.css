@@ -1,4 +1,5 @@
 nav {
+    margin-bottom: 5px;
     background-color: white;
 }
 
@@ -10,19 +11,46 @@ nav {
 .upper-nav {
     padding: 10px 20px;
     margin: auto;
-    width: 95%;
-    /*     border-bottom: 1px solid black; */
     display: flex;
     justify-content: space-between;
 }
 
+.account-login-signup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#signup-nav,
+#login-nav {
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 20px;
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 1px solid black;
+    background-color: #ffcb7e;
+}
+
 .lower-nav {
-    margin-left: 2.5%;
+    padding: 0 20px;
 }
 
 .nav-button {
     text-decoration: none;
-    padding: 0 20px;
+    padding: 1px 20px;
+    margin-right: 15px;
     background-color: #ffd6d6;
     color: black;
+}
+
+.nav-button::after {
+    content: "";
+    border: 1px solid black;
+    position: relative;
+    left: 30px;
+}
+
+#last-nav-button::after {
+    display: none
 }
