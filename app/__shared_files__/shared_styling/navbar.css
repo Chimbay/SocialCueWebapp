@@ -1,5 +1,6 @@
 nav {
     margin-bottom: 5px;
+    background-color: white;
 }
 
 .logo-container {
@@ -20,7 +21,8 @@ nav {
     justify-content: space-between;
 }
 
-#signup-nav, #login-nav {
+#signup-nav,
+#login-nav {
     font-size: 18px;
     font-weight: 500;
     margin-left: 20px;
