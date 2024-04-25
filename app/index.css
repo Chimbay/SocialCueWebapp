@@ -6,6 +6,7 @@
 .main-content {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 10px 20px;
     padding-right: 20px;
     padding-top: 20px;
@@ -45,4 +46,23 @@ body {
     justify-content: center;
     border: 1px solid black;
     border-radius: 40px;
+    text-decoration: none;
+    color: black;
 }
+
+.carousel {
+    display: flex;
+    align-content: center;
+    width: 350px;
+    padding: 10px 0;
+    border: 1px solid black;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+    width: 300px;
+    margin: 0 25px;
+    scroll-snap-align: center;
+}
+
