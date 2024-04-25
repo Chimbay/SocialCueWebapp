@@ -1,14 +1,10 @@
-nav {
-    margin-bottom: 5px;
-    background-color: white;
-}
-
 .logo-container {
     display: flex;
     align-items: center;
 }
 
 .upper-nav {
+    background-color: white;
     padding: 10px 20px;
     margin: auto;
     display: flex;
@@ -33,6 +29,7 @@ nav {
 }
 
 .lower-nav {
+    background-color: white;
     padding: 0 20px;
 }
 

@@ -17,7 +17,8 @@ If you do not care to use the relative path, the absolute path is:
 const navbar = document.getElementById("navbar")
 const head = document.getElementsByName("head")
 
-navbar.innerHTML = `<div class="upper-nav">
+navbar.innerHTML =
+    `<div class="upper-nav">
         <div class="logo-container">
             <img src="/app/__shared_files__/shared_images/logo.svg" alt="logo">
             <img src="/app/__shared_files__/shared_images/cue.svg" alt="">
