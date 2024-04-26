@@ -6,21 +6,63 @@
 .main-content {
     display: flex;
     justify-content: space-between;
-    margin: 10px 2.5%;
+    align-items: flex-start;
+    margin: 10px 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+body {
+    background-color: #fedfdf;
 }
 
 .experiences-button-container {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 3;
-    gap: 10px;
+    gap: 20px;
 }
 
 .achievement-button {
     grid-column: span 2;
-    padding: 10px 20px;
+    padding: 30px 20px;
+    background-color: #facf90;
 }
 
 .experiences-button {
-    width: 80px;
+    width: 200px;
+    padding: 70px 0 0 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #ffdba5;
 }
+
+.experiences-button,
+.achievement-button {
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+.carousel {
+    display: flex;
+    align-content: center;
+    width: 350px;
+    padding: 10px 0;
+    border: 1px solid black;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+    width: 300px;
+    margin: 0 25px;
+    scroll-snap-align: center;
+}
+
