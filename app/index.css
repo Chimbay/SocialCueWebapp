@@ -56,7 +56,7 @@ body {
     width: 350px;
     padding: 10px 0;
     border: 1px solid black;
-    overflow-x: scroll;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
 }
 
@@ -66,3 +66,15 @@ body {
     scroll-snap-align: center;
 }
 
+.carousel-buttons {
+    position: fixed;
+    left: 162px;
+    top: 340px;
+}
+
+.carousel-buttons>button {
+    border-radius: 50%;
+    border: 0;
+    padding: 10px;
+    background-color: rgba(67, 62, 62, 0.85)
+}
