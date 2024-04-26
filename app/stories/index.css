@@ -3,13 +3,33 @@
     padding: 0;
 }
 
-.introduction-image img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.introduction-image{
+    position: relative;
     width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+    height: 750px;
+    overflow: hidden;
+}
+.introduction-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: white;
+
+    -webkit-text-stroke: 1px #b39c9ca8;
+}
+#introduction-text-description {
+    top: 45%;
+    font-size: 25px;
+    -webkit-text-stroke: 1px #00000027;
+}
+.introduction-image img {
+    position: absolute;
+    height: 750px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .story-section {
@@ -17,6 +37,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 100px;
+    padding-top: 10px;
 }
 
 .story-genre {
