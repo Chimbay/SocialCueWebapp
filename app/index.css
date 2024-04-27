@@ -53,16 +53,31 @@ body {
 .carousel {
     display: flex;
     align-content: center;
-    width: 350px;
-    padding: 10px 0;
+    width: 900px;
     border: 1px solid black;
-    overflow-x: scroll;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
 }
 
 .carousel-item {
-    width: 300px;
-    margin: 0 25px;
+    width: 900px;
     scroll-snap-align: center;
 }
 
+.carousel-button-container {
+    position: fixed;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 100px;
+    padding: 3px;
+    left: 395px;
+    top: 630px;
+}
+
+.carousel-buttons {
+    border-radius: 50%;
+    border: 0;
+    padding: 20px;
+    margin: 0 4px;
+    background-color: rgba(67, 62, 62, 0.85)
+}
