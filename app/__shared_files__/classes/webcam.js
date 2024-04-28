@@ -14,7 +14,7 @@
 // into a class for several uses as well as easier modifications incase any
 // situation requires it.
 
-// To import, use -- import cam from "./webcam.js"; --
+// To import, use -- import cam from "/app/__shared_files__/classes/webcam.js"; --
 
 import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
 const { FaceLandmarker, FilesetResolver, DrawingUtils } = vision;
@@ -26,7 +26,7 @@ export default class cam {
         this.video = document.getElementById("webcam");
         this.canvasElement = document.getElementById("output_canvas");
         this.canvasCtx = this.canvasElement.getContext("2d");
-        this.enableWebcamButton = null;
+        this.enableWebcamButton = document.getElementById("webcamButton");;
         this.webcamRunning = false;
         this.videoWidth = 480;
 
@@ -34,28 +34,30 @@ export default class cam {
         this.results = undefined;
         this.drawingUtils = new DrawingUtils(this.canvasCtx);
 
-        // Before we can use HandLandmarker class we must wait for it to finish loading. Machine Learning models can be large and take a moment to get everything needed to run.
-        this.createFaceLandmarker();
-
+        // Before anything, we need to ensure the webcam dynamic HTML loads in
+        this.checkDynamicHTML();
         // Detects whether a camera is available or not
         this.hasCamera();
+    }
+
+    checkDynamicHTML() {
+        if (this.enableWebcamButton == null) {
+            throw new Error("There is no button to activate the webcam");
+        }
+        if (this.video == null) {
+            throw new Error("There is no element: \"webcam\"");
+        }
+        if (this.canvasElement == null) {
+            throw new Error("There is no element: \"output_canvas\"");
+        }
+        if (this.canvasCtx == null) {
+            throw new Error("There is no element: \"2d\"");
+        }
     }
 
     /********************************************************************
         Continuously grab image from webcam stream and detect it.
     ********************************************************************/
-    async createFaceLandmarker() {
-        const filesetResolver = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm");
-        this.faceLandmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
-            baseOptions: {
-                modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
-                delegate: "GPU"
-            },
-            outputFaceBlendshapes: true,
-            runningMode: this.runningMode,
-            numFaces: 1
-        });
-    }
 
     hasCamera() {
         // Checks if webcam access is supported.
@@ -64,12 +66,16 @@ export default class cam {
         }
         // If webcam supported, add event listener to button for when user wants to activate it.
         if (hasGetUserMedia()) {
-            this.enableWebcamButton = document.getElementById("webcamButton");
             // Use arrow function to preserve 'this' context
-            this.enableWebcamButton.addEventListener("click", () => this.enableCamera());
+            this.enableWebcamButton.addEventListener("click", () => this.setUpProcess());
         } else {
             console.warn("getUserMedia() is not supported by your browser");
         }
+    }
+
+    async setUpProcess() {
+        await this.createFaceLandmarker();
+        this.enableCamera();
     }
 
     enableCamera() {
@@ -94,6 +100,19 @@ export default class cam {
             this.video.srcObject = stream;
             // Ensure 'this' refers to the class instance
             this.video.addEventListener("loadeddata", this.predictWebcam.bind(this));
+        });
+    }
+
+    async createFaceLandmarker() {
+        const filesetResolver = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm");
+        this.faceLandmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
+            baseOptions: {
+                modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
+                delegate: "GPU"
+            },
+            outputFaceBlendshapes: true,
+            runningMode: this.runningMode,
+            numFaces: 1
         });
     }
 

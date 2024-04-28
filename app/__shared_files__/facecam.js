@@ -34,17 +34,19 @@
 
 const webcam = document.getElementById("liveView");
 async function createElement() {
-    webcam.innerHTML =
-        `<button id="webcamButton" class="mdc-button mdc-button--raised">
-            <span class="mdc-button__label">ENABLE WEBCAM</span>
-        </button>
 
+    // <button id="webcamButton">
+    //  <span >ENABLE WEBCAM</span>
+    // </button>
+
+    webcam.innerHTML =
+        `
         <div style="position: relative;">
             <video id="webcam" style="position: abso" autoplay playsinline></video>
             <canvas class="output_canvas" id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
         </div>`
 
     document.head.innerHTML += `
-    <link rel="stylesheet" href="/app/face_landmarker/webcam/facecam.css">`
+    <link rel="stylesheet" href="/app/__shared_files__/shared_styling/facecam.css">`
 }
 createElement();
