@@ -1,3 +1,7 @@
 body {
     background-color: #FEDFDF;
 }
+* {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/app/__shared_files__/shared_styling/body.css">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<navbar id="navbar">
+</navbar>
+
+<body>
+    <div class="story-scenery">
+        <img class="story-image" src="/app/stories/images/placeholder.jpeg">
+        <p class="story-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor nulla in arcu consequat, sed sagittis
+            sapien sagittis. Nulla facilisi. Fusce ultrices sapien eget augue sollicitudin, ac lacinia velit commodo.
+        </p>
+        <button id="webcamButton">
+            How did the boy feel?
+        </button>
+
+        <div id="liveView" class="videoView"></div>
+
+    </div>
+
+    <div class="story-description">
+        <div class="story-details">
+            <h3 class="story-title">Story Title placeholder</h3>
+            <div class="story-info">
+                <div class="story-author">
+                    <span class="label">Label:</span>
+                    <span class="namee">detail</span>
+                </div>
+                <div class="story-age-rating">
+                    <span class="label">Label:</span>
+                    <span class="name">detail</span>
+                </div>
+                <div class="story-read-time">
+                    <span class="label">Label:</span>
+                    <span class="name">detail</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="emotion-details">
+            <h3 class="story-title">Emotions focused on</h3>
+            <div class="emotion-list">
+                <span class="emotion-present">Emotion</span>
+                <span class="emotion-present">Emotion</span>
+                <span class="emotion-present">Emotion</span>
+                <span class="emotion-present">Emotion</span>
+            </div>
+        </div>
+
+        <div class="story-summary">
+            <h3 class="story-title">Description</h3>
+            <p class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor nulla in arcu consequat, sed sagittis
+                sapien sagittis. Nulla facilisi. Fusce ultrices sapien eget augue sollicitudin, ac lacinia velit commodo.
+            </p>
+        </div>
+
+        <div class="story-suggestions">
+            <h3 class="story-title">Story's that are simliar</h3>
+        </div>
+    </div>
+
+    <!-- For testing purposes-->
+    <script type="module" src="/app/stories/story-layout-test/test.js"></script>
+    <script src="/app/__shared_files__/facecam.js"></script>
+
+    <script src="/app/__shared_files__/navbar.js"></script>
+</body>
+</html>
