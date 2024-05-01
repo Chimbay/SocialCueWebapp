@@ -25,3 +25,22 @@
     border-radius: 15px;
     background-color: #ffc5c5;
 }
+
+#emotion-modal {
+    margin: auto;
+    outline: none;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #ffc5c5;
+}
+
+#emotion-heading {
+    text-decoration: underline;
+}
+
+#emotion-description {
+    font-size: 20px;
+    width: 400px;
+    margin-top: 5px;
+}
