@@ -1,7 +1,12 @@
 const emotion = document.getElementsByClassName("emotion")
-const dialog = document.getElementById("emotion-modal")
-const dialogEmotionHeading = document.getElementById("emotion-heading")
-const dialogEmotionDescription = document.getElementById("emotion-description")
+const modal = document.getElementById("emotion-modal")
+const modalEmotionHeading = document.getElementById("emotion-heading")
+const modalEmotionDescription = document.getElementById("emotion-description")
+const modalExitButton = document.getElementById("exit")
+
+modalExitButton.addEventListener("click", () => {
+    modal.close()
+})
 
 const emotionDescriptions = {
     Happy: "Imagine feeling like you're a shiny balloon, floating high in the sky with a big, warm smile on your face. Your heart feels as light as a feather, and there's a sparkle in your eyes like stars in the night sky. You might feel like jumping for joy or dancing around because everything feels so wonderful and bright!",
@@ -14,8 +19,8 @@ const emotionDescriptions = {
 
 for (const element of emotion) {
     element.addEventListener("click", () => {
-        dialog.showModal()
-        dialogEmotionHeading.innerText = element.innerText
-        dialogEmotionDescription.innerText = emotionDescriptions[element.innerText]
+        modal.showModal()
+        modalEmotionHeading.innerText = element.innerText
+        modalEmotionDescription.innerText = emotionDescriptions[element.innerText]
     })
 }
