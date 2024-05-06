@@ -1,11 +1,7 @@
 import cam from "/app/__shared_files__/classes/webcam.js";
 
-const reactionButton = document.getElementById("webcam");
-
+const reactionButton = document.getElementById("webcamButton");
+const childElement = document.querySelector('.story-scenery');
 const obj = new cam;
-
-function test (){
-    console.log("Test here");
-}
-
-reactionButton.addEventListener("click", test);
+obj.assignButton(reactionButton);
+obj.assignCamPlacement(childElement);
