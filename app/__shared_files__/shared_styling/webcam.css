@@ -27,7 +27,7 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 
 /********************************************************************
-    HTML - For video
+    For video
 ********************************************************************/
 video {
     clear: both;
@@ -36,29 +36,20 @@ video {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
 }
-
-.videoView,
-.blend-shapes {
-    position: relative;
-    float: left;
-    width: 48%;
-    margin: 2% 1%;
-    cursor: pointer;
-}
-
-.videoView p {
-    position: absolute;
-    padding: 5px;
-    background-color: #007f8b;
-    color: #fff;
-    border: 1px dashed rgba(255, 255, 255, 0.7);
-    z-index: 2;
-    font-size: 12px;
-    margin: 0;
-}
-
 .output_canvas {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
+}
+/********************************************************************
+    For styling purposes
+********************************************************************/
+#webcam-section {
+    position: absolute;
+}
+#webcam {
+    position: absolute;
+}
+#output_canvas {
+    position: absolute; 
 }
