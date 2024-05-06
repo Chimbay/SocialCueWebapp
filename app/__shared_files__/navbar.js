@@ -18,12 +18,13 @@ const navbar = document.getElementById("navbar")
 const head = document.getElementsByName("head")
 
 navbar.innerHTML =
-    `<div class="upper-nav">
+    `
+    <div class="upper-nav">
+        <img id="hamburger-menu" class="hamburger-menu" src="/app/__shared_files__/shared_images/more.png">
         <div class="logo-container">
-            <img src="/app/__shared_files__/shared_images/logo.svg" alt="logo">
-            <img src="/app/__shared_files__/shared_images/cue.svg" alt="">
+            <img class="logo-image" src="/app/__shared_files__/shared_images/logo.svg" alt="logo">
+            <img class="logo-title" src="/app/__shared_files__/shared_images/cue.svg" alt="">
         </div>
-
         <div class="account-login-signup">
             <button id="signup-nav">Sign up</button>
             <button id="login-nav">Log in</button>
