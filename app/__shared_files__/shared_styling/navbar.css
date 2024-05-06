@@ -1,3 +1,9 @@
+.hamburger-menu {
+    display: none;
+    width: 30px;
+    height: 30px;
+}
+
 .logo-container {
     display: flex;
     align-items: center;
@@ -22,11 +28,14 @@
 #login-nav {
     font-size: 18px;
     font-weight: 500;
-    margin-left: 20px;
     padding: 5px 20px;
     border-radius: 50px;
     border: 1px solid black;
     background-color: #ffcb7e;
+}
+
+#login-nav {
+    margin-left: 20px;
 }
 
 .lower-nav {
@@ -51,4 +60,54 @@
 
 #last-nav-button::after {
     display: none
+}
+
+@media screen and (max-width: 1020px) {
+    .upper-nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .lower-nav {
+        display: flex;
+        justify-content: center;
+        padding: 0 0 10px;
+    }
+
+
+    #login-nav {
+        margin-left: 10px
+    }
+
+    #login-nav,
+    #signup-nav {
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .upper-nav {
+        flex-direction: row-reverse;
+    }
+
+    .lower-nav {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .account-login-signup {
+        display: none;
+    }
+
+    .logo-image {
+        width: 70px;
+    }
+
+    .logo-title {
+        width: 100px;
+    }
 }
