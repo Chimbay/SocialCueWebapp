@@ -86,10 +86,6 @@
 }
 
 @media screen and (max-width: 830px) {
-    .upper-nav {
-        flex-direction: row-reverse;
-    }
-
     .lower-nav {
         display: none;
     }

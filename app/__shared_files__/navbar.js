@@ -20,7 +20,6 @@ const head = document.getElementsByName("head")
 navbar.innerHTML =
     `
     <div class="upper-nav">
-        <img id="hamburger-menu" class="hamburger-menu" src="/app/__shared_files__/shared_images/more.png">
         <div class="logo-container">
             <img class="logo-image" src="/app/__shared_files__/shared_images/logo.svg" alt="logo">
             <img class="logo-title" src="/app/__shared_files__/shared_images/cue.svg" alt="">
@@ -29,6 +28,7 @@ navbar.innerHTML =
             <button id="signup-nav">Sign up</button>
             <button id="login-nav">Log in</button>
         </div>
+        <img id="hamburger-menu" class="hamburger-menu" src="/app/__shared_files__/shared_images/more.png">
     </div>
     <div class="lower-nav">
         <a class="nav-button" href="/app/index.html">Home</a>
