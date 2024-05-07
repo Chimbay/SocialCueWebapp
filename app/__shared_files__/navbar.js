@@ -8,10 +8,6 @@ The "ID" is the most important part, that is how the JS file will target the ele
 Now add the following script before the closing html tag:
 
 <script src="[PATH-TO-THIS-FILE]"></script>
-
-If you do not care to use the relative path, the absolute path is:
-
-<script src="/app/__shared_files__/navbar.js"></script>
 */
 
 const navbar = document.getElementById("navbar")
