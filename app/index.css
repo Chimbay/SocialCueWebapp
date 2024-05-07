@@ -45,7 +45,6 @@
     display: flex;
     align-content: center;
     width: 900px;
-    border: 1px solid black;
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
 }
