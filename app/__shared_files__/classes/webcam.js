@@ -60,8 +60,8 @@ export default class cam {
             console.warn("No button was assigned to the webcam.");
         }
     }
-    // Assignments
-    assignButton(element) {
+    // Setters
+    setButton(element) {
         if (!element) {
             console.warn(element, "Is invalid");
             return;
@@ -76,7 +76,7 @@ export default class cam {
             console.warn(element, "Is invalid");
         }
     }
-    assignCamPlacement(element) {
+    setCamPlacement(element) {
         if (!element || !(element instanceof HTMLElement)) {
             console.warn("Invalid element provided for camera placement:", element);
             return;
@@ -93,8 +93,12 @@ export default class cam {
         // Store the position of the cam relative to the div it's being stored in (For instance, top right)
         this.webcamPosition = {
             top: 0 + 'px',
-            left: (elementWidth - this.videoWidth) + 'px'
+            left: '460px'
         }
+    }
+    // Getters
+    getResults(){
+        return this.results.faceBlendshapes[0];
     }
     // Methods to build the camera
     async setUpProcess() {
@@ -197,7 +201,7 @@ export default class cam {
             },
             outputFaceBlendshapes: true,
             runningMode: this.runningMode,
-            numFaces: 1
+            numFaces: 2
         });
     }
 
@@ -242,22 +246,21 @@ export default class cam {
         }
         if (this.results.faceLandmarks) {
             for (const landmarks of this.results.faceLandmarks) {
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_TESSELATION, { color: "#C0C0C070", lineWidth: 1 });
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYE, { color: "#FF3030" });
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYEBROW, { color: "#FF3030" });
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYE, { color: "#30FF30" });
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYEBROW, { color: "#30FF30" });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_TESSELATION, { color: "#C0C0C070", lineWidth: 1 });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYE, { color: "#FF3030" });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYEBROW, { color: "#FF3030" });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYE, { color: "#30FF30" });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYEBROW, { color: "#30FF30" });
                 this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_FACE_OVAL, { color: "#E0E0E0" });
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LIPS, { color: "#E0E0E0" });
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_IRIS, { color: "#FF3030" });
-                this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_IRIS, { color: "#30FF30" });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LIPS, { color: "#E0E0E0" });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_IRIS, { color: "#FF3030" });
+                // this.drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_IRIS, { color: "#30FF30" });
             }
         }
         /*
             faceBlendshapes is the object literal that stores the facial values
             results.faceBlendshapes
         */
-
         // Call this function again to keep predicting when the browser is ready.
         if (this.webcamRunning === true) {
             window.requestAnimationFrame(this.#predictWebcam.bind(this));

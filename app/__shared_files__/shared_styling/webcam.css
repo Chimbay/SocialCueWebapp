@@ -49,6 +49,7 @@ video {
 }
 #webcam {
     position: absolute;
+    border-radius: 10px;
 }
 #output_canvas {
     position: absolute; 
