@@ -1,6 +1,6 @@
-// To import, use -- import cam from "./emotionProfile.js"; --
+// To import, use -- import EmotionProfiles from "./emotionProfile.js"; --
 
-class EmotionProfiles {
+export default class EmotionProfiles {
     #profiles = {
         happiness: {
             mouthSmileRight: 0.7892182916,
@@ -10,6 +10,7 @@ class EmotionProfiles {
             mouthLowerDownRight: 0.4772540823,
             eyeSquintLeft: 0.3965499461
         }
+        
     };
     #featureValues = null;
 
