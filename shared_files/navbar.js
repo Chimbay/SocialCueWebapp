@@ -17,14 +17,14 @@ navbar.innerHTML =
     `
     <div class="upper-nav">
         <div class="logo-container">
-            <img class="logo-image" src="/app/__shared_files__/shared_images/logo.svg" alt="logo">
-            <img class="logo-title" src="/app/__shared_files__/shared_images/cue.svg" alt="">
+            <img class="logo-image" src="/app/shared_files/shared_images/logo.svg" alt="logo">
+            <img class="logo-title" src="/app/shared_files/shared_images/cue.svg" alt="">
         </div>
         <div class="account-login-signup">
             <button id="signup-nav">Sign up</button>
             <button id="login-nav">Log in</button>
         </div>
-        <img id="hamburger-menu" class="hamburger-menu" src="/app/__shared_files__/shared_images/more.png">
+        <img id="hamburger-menu" class="hamburger-menu" src="/app/shared_files/shared_images/more.png">
     </div>
     <div class="lower-nav">
         <a class="nav-button" href="/app/index.html">Home</a>
@@ -36,5 +36,5 @@ navbar.innerHTML =
     </div>`
 
 document.head.innerHTML += `
-    <link rel="stylesheet" href="/app/__shared_files__/shared_styling/navbar.css">
+    <link rel="stylesheet" href="/app/shared_files/shared_styling/navbar.css">
 `
