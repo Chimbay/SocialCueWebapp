@@ -15,7 +15,7 @@
     into a class for several uses as well as easier modifications incase any
     situation requires it.
 
-    To import, use -- import cam from "/app/__shared_files__/classes/webcam.js"; --
+    To import, use -- import cam from "/shared_files/classes/webcam.js"; --
 */
 import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
 const { FaceLandmarker, FilesetResolver, DrawingUtils } = vision;
@@ -154,7 +154,7 @@ export default class cam {
             // Append CSS stylesheet
             const linkElement = document.createElement('link');
             linkElement.rel = 'stylesheet';
-            linkElement.href = '/app/__shared_files__/shared_styling/webcam.css';
+            linkElement.href = '/shared_files/shared_styling/webcam.css';
             document.head.appendChild(linkElement);
         }
         // Append webcam to parent
