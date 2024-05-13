@@ -1,5 +1,5 @@
-import cam from "/app/__shared_files__/classes/webcam.js";
-import EmotionProfiles from "/app/__shared_files__/classes/emotionProfile.js";
+import cam from "/shared_files/classes/webcam.js";
+import EmotionProfiles from "/shared_files/classes/emotionProfile.js";
 
 const reactionButton = document.getElementById("webcamButton");
 const childElement = document.querySelector('.story-scenery');
