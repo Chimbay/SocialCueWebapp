@@ -154,7 +154,7 @@ export default class cam {
             // Append CSS stylesheet
             const linkElement = document.createElement('link');
             linkElement.rel = 'stylesheet';
-            linkElement.href = '/shared_files/shared_styling/webcam.css';
+            linkElement.href = '/SocialCueWebapp/shared_files/shared_styling/webcam.css';
             document.head.appendChild(linkElement);
         }
         // Append webcam to parent
