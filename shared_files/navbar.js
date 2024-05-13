@@ -17,24 +17,24 @@ navbar.innerHTML =
     `
     <div class="upper-nav">
         <div class="logo-container">
-            <img class="logo-image" src="/app/shared_files/shared_images/logo.svg" alt="logo">
-            <img class="logo-title" src="/app/shared_files/shared_images/cue.svg" alt="">
+            <img class="logo-image" src="/shared_files/shared_images/logo.svg" alt="logo">
+            <img class="logo-title" src="/shared_files/shared_images/cue.svg" alt="">
         </div>
         <div class="account-login-signup">
             <button id="signup-nav">Sign up</button>
             <button id="login-nav">Log in</button>
         </div>
-        <img id="hamburger-menu" class="hamburger-menu" src="/app/shared_files/shared_images/more.png">
+        <img id="hamburger-menu" class="hamburger-menu" src="/shared_files/shared_images/more.png">
     </div>
     <div class="lower-nav">
-        <a class="nav-button" href="/app/index.html">Home</a>
-        <a class="nav-button" href="/app/achievements/index.html">Achievements</a>
-        <a class="nav-button" href="/app/camera/index.html">Camera</a>
-        <a class="nav-button" href="/app/scenarios/index.html">Scenarios</a>
-        <a class="nav-button" href="/app/stories/index.html">Stories</a>
-        <a id="last-nav-button" class="nav-button" href="/app/type_of_emotion/index.html">Types of Emotion</a>
+        <a class="nav-button" href="/index.html">Home</a>
+        <a class="nav-button" href="/achievements/index.html">Achievements</a>
+        <a class="nav-button" href="/camera/index.html">Camera</a>
+        <a class="nav-button" href="/scenarios/index.html">Scenarios</a>
+        <a class="nav-button" href="/stories/index.html">Stories</a>
+        <a id="last-nav-button" class="nav-button" href="/type_of_emotion/index.html">Types of Emotion</a>
     </div>`
 
 document.head.innerHTML += `
-    <link rel="stylesheet" href="/app/shared_files/shared_styling/navbar.css">
+    <link rel="stylesheet" href="/shared_files/shared_styling/navbar.css">
 `
