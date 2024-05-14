@@ -17,8 +17,12 @@ navbar.innerHTML =
     `
     <div class="upper-nav">
         <div class="logo-container">
-            <img class="logo-image" src="/shared_files/shared_images/logo.svg" alt="logo">
-            <img class="logo-title" src="/shared_files/shared_images/cue.svg" alt="">
+            <a href="/index.html">
+                <img class="logo-image" src="/shared_files/shared_images/logo.svg" alt="logo">
+            </a>
+            <a href="/index.html">
+                <img class="logo-title" src="/shared_files/shared_images/cue.svg" alt="">
+            </a>
         </div>
         <div class="account-login-signup">
             <button id="signup-nav">Sign up</button>
