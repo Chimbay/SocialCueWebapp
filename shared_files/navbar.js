@@ -18,10 +18,10 @@ navbar.innerHTML =
     <div class="upper-nav">
         <div class="logo-container">
             <a href="/SocialCueWebapp/index.html">
-                <img class="logo-image" src="/shared_files/shared_images/logo.svg" alt="logo">
+                <img class="logo-image" src="/SocialCueWebapp/shared_files/shared_images/logo.svg" alt="logo">
             </a>
             <a href="/SocialCueWebap/index.html">
-                <img class="logo-title" src="/shared_files/shared_images/cue.svg" alt="">
+                <img class="logo-title" src="/SocialCueWebapp/shared_files/shared_images/cue.svg" alt="">
             </a>
         </div>
         <div class="account-login-signup">
