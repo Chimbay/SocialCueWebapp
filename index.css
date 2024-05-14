@@ -17,7 +17,6 @@
 .achievement-button {
     grid-column: span 2;
     padding: 30px 20px;
-    background-color: #facf90;
 }
 
 .experiences-button {
@@ -26,13 +25,13 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: #ffdba5;
 }
 
 .experiences-button,
 .achievement-button {
     font-size: 30px;
     font-weight: 500;
+    background-color: #ffdba5;
     display: flex;
     justify-content: center;
     border: 1px solid black;
