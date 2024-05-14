@@ -20,7 +20,7 @@ navbar.innerHTML =
             <a href="/SocialCueWebapp/index.html">
                 <img class="logo-image" src="/SocialCueWebapp/shared_files/shared_images/logo.svg" alt="logo">
             </a>
-            <a href="/SocialCueWebap/index.html">
+            <a href="/SocialCueWebapp/index.html">
                 <img class="logo-title" src="/SocialCueWebapp/shared_files/shared_images/cue.svg" alt="">
             </a>
         </div>
