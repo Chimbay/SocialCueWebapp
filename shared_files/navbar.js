@@ -33,8 +33,35 @@ navbar.innerHTML =
         <a class="nav-button" href="/scenarios/index.html">Scenarios</a>
         <a class="nav-button" href="/stories/index.html">Stories</a>
         <a id="last-nav-button" class="nav-button" href="/type_of_emotion/index.html">Types of Emotion</a>
-    </div>`
+    </div>
+    <div id="mobile-navbar" class="mobile-nav">
+        <a class="mobile-nav-button" href="/index.html">Home</a>
+        <a class="mobile-nav-button" href="/achievements/index.html">Achievements</a>
+        <a class="mobile-nav-button" href="/camera/index.html">Camera</a>
+        <a class="mobile-nav-button" href="/scenarios/index.html">Scenarios</a>
+        <a class="mobile-nav-button" href="/stories/index.html">Stories</a>
+        <a class="mobile-nav-button" href="/type_of_emotion/index.html">Types of Emotion</a>
+    </div>
+    `
 
 document.head.innerHTML += `
     <link rel="stylesheet" href="/shared_files/shared_styling/navbar.css">
 `
+
+let isMobileNavOpen = false
+const hamburgerMenu = document.getElementById("hamburger-menu")
+const mobileNavbar = document.getElementById("mobile-navbar")
+
+hamburgerMenu.addEventListener("click", () => {
+    if (!isMobileNavOpen) {
+        isMobileNavOpen = true
+        mobileNavbar.style.height = "180px"
+        mobileNavbar.style.padding = "10px 0"
+        hamburgerMenu.src = "/shared_files/shared_images/reject.png"
+    } else {
+        isMobileNavOpen = false
+        mobileNavbar.style.height = "0px"
+        mobileNavbar.style.padding = "0px"
+        hamburgerMenu.src = "/shared_files/shared_images/more.png"
+    }
+})
