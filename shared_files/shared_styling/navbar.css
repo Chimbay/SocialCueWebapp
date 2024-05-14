@@ -52,6 +52,8 @@
     flex-direction: column;
     overflow-y: hidden;
     z-index: 999999999999;
+    transition: height 0.3s;
+    transition: padding 0.3s;
 }
 
 .mobile-nav-button {
