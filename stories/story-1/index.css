@@ -29,13 +29,16 @@ body {
     background-color: rgba(0, 0, 0, 0.415);
 }
 #webcamButton {
-    bottom: 120px;
-    left: 550px;
-    transform: translateX(25%);
-    position: absolute;
-    width: 200px;
-    height: 50px
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #FEDFDF;
+    border-radius: 15px;
+    color: inherit;
+    text-shadow: inherit;
+    padding: 0; /* Optional: Removes padding */
+    font: inherit; /* Optional: Inherits the font from the parent element */
+    cursor: pointer;
 }
+
 #answer {
     top: 450px;
     left: 500px;
@@ -67,11 +70,11 @@ body {
 */
 .story-description {
     margin-bottom: 0px;
+    background-color: white;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 10px;
     padding: 20px;
-    background-color: white;
 }
 
 .story-title {
@@ -95,6 +98,8 @@ body {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 10px;
+    border-bottom: 1px solid black;
+    padding: 10px;
 }
 .emotion-present {
     text-align: center;
@@ -117,4 +122,27 @@ body {
     font-weight: bold;
     text-align: center;
 }
+.story-summary {
+    padding: 10px;
+}
+.story-suggestions {
+    padding: 10px;
+}
 
+@media screen and (max-width: 1400px){
+    .story-description {
+        margin-bottom: 0px;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        padding: 20px;
+    }
+    .story-summary {
+        border-bottom: 1px solid black;
+    }
+    .story-details {
+        padding: 10px;
+        border-bottom: 1px solid black;
+    }
+}

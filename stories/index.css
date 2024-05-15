@@ -60,3 +60,21 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.154);
 }
+
+@media screen and (max-width: 1400px) {
+    .story-section {
+        padding: 0px;
+    }
+    .story-genre {
+        max-width: 100%;
+    }
+    .story-genre-image {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 667px){
+    .introduction-text {
+        top: 30%;
+    }
+}
