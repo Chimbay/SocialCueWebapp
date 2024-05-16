@@ -212,11 +212,9 @@ export default class cam {
         }
         if (this.webcamRunning === true) {
             this.webcamRunning = false;
-            this.enableWebcamButton.innerText = "ENABLE PREDICTIONS";
         }
         else {
             this.webcamRunning = true;
-            this.enableWebcamButton.innerText = "DISABLE PREDICTIONS";
         }
         // getUsermedia parameters.
         const constraints = {

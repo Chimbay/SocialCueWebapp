@@ -1,37 +1,29 @@
-.image-container {
-    background-color: red;
+.card {
     display: flex;
-    border-radius: 20px;
-    margin: 60px auto auto;
     width: fit-content;
-    justify-content: center;
-    align-items: center;
-}
-
-.img {
-    padding: 20px;
-}
-
-.prompt-container {
-    width: 1000px;
-    margin: 20px auto;
-    padding: 5px 15px;
-    border-radius: 25px;
-    background-color: red;
-    font-size: 25px;
-}
-
-.emotion {
-    font-weight: bold;
-    color: #f4ce47;
-}
-
-.camera-button {
-    display: flex;
     margin: auto;
-    font-size: 30px;
-    font-weight: bold;
-    width: 400px;
-    border-radius: 25px;
-    justify-content: center;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.card-image {
+    width: 300px;
+}
+
+.scenario-header {
+    text-align: center;
+}
+
+.subheader {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: 2;
+}
+
+.scenario-emotion {
+    grid-column: span 1;
+}
+
+.scenario-description {
+    grid-column: span 2;
 }
