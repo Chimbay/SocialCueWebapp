@@ -243,6 +243,7 @@ export default class cam {
         if (this.lastVideoTime !== this.video.currentTime) {
             this.lastVideoTime = this.video.currentTime;
             this.results = this.faceLandmarker.detectForVideo(this.video, startTimeMs);
+            console.log("Second result", this.results);
         }
         if (this.results.faceLandmarks) {
             for (const landmarks of this.results.faceLandmarks) {

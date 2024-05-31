@@ -1,5 +1,4 @@
 .introduction-image{
-    height: 75vh;
     overflow: hidden;
 }
 .introduction-text {
@@ -20,43 +19,30 @@
 .introduction-image img {
     transform: translate(-33%);
 }
-
+/*
+    The stories listed
+*/
 .story-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+
+    width: fit-content;
+    margin: 0 auto;
     padding-top: 10px;
 }
-
 .story-genre {
     position: relative;
-    background-color: blue;
-    margin-bottom: 10px;
-    height: 100%;
-}
-.story-genre a{
-    text-decoration: none;
-    color: white;
 }
 .story-genre-image {
-    width: 300px;
-    height: 500px;
-    display: block;
+    width: 400px;
+    height: 600px;
 }
 .story-genre-title {
+    top: 5%;
     position: absolute;
-    text-align: center;
-    top: 0px;
-    height: 20%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.154);
 }
 .story-genre-description {
+    bottom: 5%;
     position: absolute;
-    text-align: center;
-    bottom: 0px;
-    height: 20%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.154);
 }
