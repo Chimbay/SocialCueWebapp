@@ -4,15 +4,19 @@ import cue from "../../images/cue.png"
 import more from "../../images/more.png"
 import reject from "../../images/reject.png"
 import NavbarButton from "../NavbarButton/index"
+import React from 'react';
 import { useState } from "react"
+import { Link } from "react-router-dom";
+
+
 
 const btnInfo = [
-    { cn: "nav-button", link: "/", label: "Home" },
-    { cn: "nav-button", link: "/", label: "Achievements" },
-    { cn: "nav-button", link: "/", label: "Camera" },
-    { cn: "nav-button", link: "/", label: "Scenarios" },
-    { cn: "nav-button", link: "/", label: "Stories" },
-    { cn: "nav-button", link: "/", label: "Types of Emotion" },
+    { cn: "nav-button", path: "/", label: "Home" },
+    { cn: "nav-button", path: "/Achievements", label: "Achievements" },
+    { cn: "nav-button", path: "/Camera", label: "Camera" },
+    { cn: "nav-button", path: "/Scenarios", label: "Scenarios" },
+    { cn: "nav-button", path: "/Stories", label: "Stories" },
+    { cn: "nav-button", path: "/TypesOfEmotions", label: "Types of Emotion" },
 ]
 
 export default function Navbar() {
@@ -32,12 +36,12 @@ export default function Navbar() {
         <nav>
             <div className="upper-nav">
                 <div className="logo-container">
-                    <a href="/index.html">
+                    <Link to="/">
                         <img className="logo-image" src={logo} alt="logo" />
-                    </a>
-                    <a href="/index.html">
+                    </Link>
+                    <Link to="/">
                         <img className="logo-title" src={cue} alt="" />
-                    </a>
+                    </Link>
                 </div>
                 <div className="account-login-signup">
                     <button id="signup-nav">Sign up</button>
@@ -46,10 +50,10 @@ export default function Navbar() {
                 <img id="hamburger-menu" className="hamburger-menu" src={more} onClick={handleClick} />
             </div>
             <div className="lower-nav">
-                {btnInfo.map((info) => <NavbarButton cn={info.cn} link={info.link} label={info.label} />)}
+                {btnInfo.map((info) => <NavbarButton cn={info.cn} path={info.path} label={info.label} />)}
             </div>
             <div id="mobile-navbar" className="mobile-nav" style={mobNavStyling}>
-                {btnInfo.map((info) => <NavbarButton cn={"mobile-" + info.cn} link={info.link} label={info.label} />)}
+                {btnInfo.map((info) => <NavbarButton cn={"mobile-" + info.cn} path={info.path} label={info.label} />)}
             </div>
         </nav>
     )
