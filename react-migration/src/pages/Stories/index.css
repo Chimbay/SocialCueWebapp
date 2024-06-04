@@ -22,18 +22,17 @@
 }
 
 .story-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 100px;
-    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .story-genre {
     position: relative;
     background-color: blue;
-    margin-bottom: 10px;
-    height: 100%;
+    width: 100%;
 }
 .story-genre a{
     text-decoration: none;
