@@ -1,0 +1,61 @@
+.carousel {
+    position: relative;
+    margin-left: 10px;
+    width: 620px
+}
+.image-container {
+    display: flex;
+    overflow: hidden;
+}
+.image {
+    width: 100%;
+    transition: translate 500ms ease-in-out
+}
+
+.index-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px; 
+
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-bottom: 5px;
+}
+.index-button {
+    padding: 10px;
+    height: auto;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255, .5);
+
+    cursor: pointer;
+}
+
+.previous-button{
+    position: absolute;
+
+    height: 100%;
+    background-color: rgba(0, 0, 0, .25);
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+    top: 0px;
+    left: 0px;
+}
+.forward-button {
+    position: absolute;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, .25);
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+    top: 0px;
+    right: 0px;
+}

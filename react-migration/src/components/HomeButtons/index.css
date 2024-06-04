@@ -1,0 +1,49 @@
+.experiences-button-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 3;
+    gap: 20px;
+}
+
+.achievement-button {
+    grid-column: span 2;
+    padding: 30px 20px;
+}
+
+.experiences-button {
+    width: 200px;
+    padding: 70px 0 0 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.experiences-button,
+.achievement-button {
+    font-size: 30px;
+    font-weight: 500;
+    background-color: #ffdba5;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 1400px) {
+    .experiences-button-container {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .experiences-button {
+        width: 150px;
+    }
+
+    .experiences-button,
+    .achievement-button {
+        font-size: 24px;
+    }
+}
