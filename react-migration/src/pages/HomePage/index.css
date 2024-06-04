@@ -1,12 +1,4 @@
-.carousel {
-    margin: 0 auto;
-    width: 620px
-}
-.carousel-images {
+.main-content {
     display: flex;
-    overflow: hidden;
-}
-.image {
-    width: 100%;
-    transition: translate 500ms ease-in-out
+    flex-wrap: wrap;
 }
