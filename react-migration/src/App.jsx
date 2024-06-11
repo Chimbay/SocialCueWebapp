@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import TypesOfEmotions from './pages/TypesOfEmotions';
 import Stories from './pages/Stories';
+import Achievements from './pages/Achievements';
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/Achievements" element={<Achievements />} />
                 <Route path="/TypesOfEmotions" element={<TypesOfEmotions />} />
                 <Route path="/Stories" element={<Stories />} />
             </Routes>
