@@ -1,0 +1,22 @@
+.achievement-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.achievement {
+    font-size: 40px;
+    background-color: #FFFB98;
+    padding: 20px 0;
+    text-align: center;
+    margin: 20px auto 10px;
+    width: 800px;
+}
+
+@media screen and (max-width: 830px) {
+    .achievement {
+        width: 90%;
+        margin: 10px auto 5px;
+        font-size: 25px;
+    }
+}
