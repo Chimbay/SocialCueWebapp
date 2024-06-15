@@ -21,12 +21,18 @@ const scenarios = [
     emotes: ["sad", "happy"],
     desc: "This is the description",
   },
+  {
+    img: childrenPlayingTag,
+    header: "This is the header!",
+    emotes: ["sad", "happy"],
+    desc: "This is the description",
+  },
 ];
 
 function ScenarioCard({ imgSrc, header, emotions, description }) {
   return (
-    <div className="card">
-      <img className="card-image" src={imgSrc} alt="" />
+    <div className="scenario-card">
+      <img className="scenario-card-image" src={imgSrc} alt="" />
       <h2 className="scenario-header">{header}</h2>
       <div className="subheader">
         {emotions &&
@@ -48,15 +54,17 @@ export default function Scenarios() {
   return (
     <>
       <h1>This is the Scenarios section!</h1>
-      {scenarios.map((scenario, index) => (
-        <ScenarioCard
-          key={`scenario-card-${index}`}
-          imgSrc={scenario.img}
-          header={scenario.header}
-          emotions={scenario.emotes}
-          description={scenario.desc}
-        />
-      ))}
+      <div className="scenario-card-container">
+        {scenarios.map((scenario, index) => (
+          <ScenarioCard
+            key={`scenario-card-${index}`}
+            imgSrc={scenario.img}
+            header={scenario.header}
+            emotions={scenario.emotes}
+            description={scenario.desc}
+          />
+        ))}
+      </div>
     </>
   );
 }
