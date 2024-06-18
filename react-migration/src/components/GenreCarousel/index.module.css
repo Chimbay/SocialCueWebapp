@@ -1,0 +1,46 @@
+.genre {
+  background-color: white;
+  margin: 10px;
+  padding: 5px;
+}
+.genre-title {
+  text-decoration: none;
+}
+.genre-inner {
+  display: flex;
+}
+.genre-stories {
+  display: flex;
+  width: 1200px;
+  overflow: hidden;
+  gap: 2px;
+}
+.story {
+  transition: translate 500ms ease-in-out;
+}
+#in {
+}
+#out {
+    background-color: yellow;
+}
+.story-link {
+}
+.story-image {
+  width: 300px;
+  display: block;
+}
+.previous-button {
+  margin-right: 5px;
+}
+.forward-button {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 1020px) {
+  .genre-stories {
+    width: 600px;
+  }
+  .story-image {
+    width: 200px;
+  }
+}

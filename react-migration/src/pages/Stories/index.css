@@ -1,79 +1,28 @@
-.introduction-image{
-    height: 75vh;
-    overflow: hidden;
+.introduction-image {
+  overflow: hidden;
 }
 .introduction-text {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    top: 35%;
-    font-size: 250%;
-    color: #fec04e;
-    text-shadow: 
-    3px 1px #8c67b6, 
-    2px 1px #8c67b6;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 35%;
+  font-size: 250%;
+  color: #fec04e;
+  text-shadow: 3px 1px #8c67b6, 2px 1px #8c67b6;
 }
 #introduction-text-description {
-    top: 45%;
-    font-size: 150%;
+  top: 45%;
+  font-size: 150%;
 }
 .introduction-image img {
-    transform: translate(-33%);
+  transform: translate(-33%);
 }
 
 .story-section {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 10px;
-    width: fit-content;
-    margin: 0 auto;
+  width: fit-content;
+  margin: 0 auto;
 }
 
-.story-genre {
-    position: relative;
-    background-color: blue;
-    width: 100%;
-}
-.story-genre a{
-    text-decoration: none;
-    color: white;
-}
-.story-genre-image {
-    width: 300px;
-    height: 500px;
-    display: block;
-}
-.story-genre-title {
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    height: 20%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.154);
-}
-.story-genre-description {
-    position: absolute;
-    text-align: center;
-    bottom: 0px;
-    height: 20%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.154);
-}
-
-@media screen and (max-width: 1400px) {
-    .story-section {
-        padding: 0px;
-    }
-    .story-genre {
-        max-width: 100%;
-    }
-    .story-genre-image {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 667px){
-    .introduction-text {
-        top: 30%;
-    }
+.genre-section {
+  width: 100%;
 }
