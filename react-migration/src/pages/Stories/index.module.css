@@ -1,7 +1,7 @@
-.introduction-image {
+.introductionImage {
   overflow: hidden;
 }
-.introduction-text {
+.introductionText {
   position: absolute;
   text-align: center;
   width: 100%;
@@ -10,19 +10,19 @@
   color: #fec04e;
   text-shadow: 3px 1px #8c67b6, 2px 1px #8c67b6;
 }
-#introduction-text-description {
+#introductionTextDescription {
   top: 45%;
   font-size: 150%;
 }
-.introduction-image img {
+.introductionImage img {
   transform: translate(-33%);
 }
 
-.story-section {
+.storySection {
   width: fit-content;
   margin: 0 auto;
 }
 
-.genre-section {
+.genreSection {
   width: 100%;
 }
