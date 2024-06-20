@@ -51,9 +51,7 @@ export default function GenreCarousel({ objectArr }) {
   }
   function calculateStoryArray() {
     const childrenCount = storyChildrenCountRef.current;
-    const slidesCount = amountOfSlides.current;
     const amountInSlide = amountOfStoryInSlide.current;
-    console.log(amountInSlide);
 
     let arr = [];
     let tempArr = [];
@@ -69,7 +67,6 @@ export default function GenreCarousel({ objectArr }) {
       arr.push(tempArr);
     }
 
-    console.log(arr);
     return arr;
   }
   function calculateGenreWidth() {
@@ -99,7 +96,7 @@ export default function GenreCarousel({ objectArr }) {
   }
   return (
     <div className={style["genre"]}>
-      <Link className={style["genre-title"]} to={objectArr.genrePath}>
+      <Link className={style["genre-title"]} to={`/Stories/genres/${objectArr.genrePath}`}>
         <h2>Genre</h2>
       </Link>
       <div className={style["genre-inner"]}>
@@ -129,7 +126,7 @@ export default function GenreCarousel({ objectArr }) {
                     }),
               }}
             >
-              <Link className={style["story-link"]} to={story.storyPath}>
+              <Link className={style["story-link"]} to={`/Stories/${story.storyPath}`}>
                 <img
                   className={style["story-image"]}
                   ref={imageElemRef}
