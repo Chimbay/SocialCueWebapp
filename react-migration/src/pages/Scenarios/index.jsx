@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import childrenPlayingTag from "../../images/children-playing-tag.jpg";
-import "./index.css";
+import style from "./index.module.css";
 
 const scenarios = [
   {
@@ -38,27 +38,27 @@ const scenarios = [
 function ScenarioCard({ imgSrc, header, emotions, description }) {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
-    <div className="scenario-card">
-      {!isLoaded && <h1 className="loading-header">Loading...</h1>}
+    <div className={style.scenarioCard}>
+      {!isLoaded && <h1 className={style.loadingHeader}>Loading...</h1>}
       <img
         onLoad={() => setIsLoaded(true)}
-        className="scenario-card-image"
+        className={style.scenarioCardImage}
         src={imgSrc}
         alt=""
       />
-      <h2 className="scenario-header">{header}</h2>
-      <div className="sub-section">
-        <h3 className="subheader">Emotions:</h3>
+      <h2 className={style.scenarioHeader}>{header}</h2>
+      <div className={style.subSection}>
+        <h3 className={style.subheader}>Emotions:</h3>
         {emotions &&
           emotions.map((emotion, index) => (
             <button
-              key={`scenario-emotion-${index}`}
-              className="scenario-emotion"
+              key={`scenarioEmotion${index}`}
+              className={style.scenarioEmotion}
             >
               {emotion}
             </button>
           ))}
-        <p className="scenario-description">{description}</p>
+        <p className={style.scenarioDescription}>{description}</p>
       </div>
     </div>
   );
@@ -68,10 +68,10 @@ export default function Scenarios() {
   return (
     <>
       <h1>This is the Scenarios section!</h1>
-      <div className="scenario-card-container">
+      <div className={style.scenarioCardContainer}>
         {scenarios.map((scenario, index) => (
           <ScenarioCard
-            key={`scenario-card-${index}`}
+            key={`scenarioCard${index}`}
             imgSrc={scenario.img}
             header={scenario.header}
             emotions={scenario.emotes}

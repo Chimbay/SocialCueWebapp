@@ -76,7 +76,7 @@ export default function GenreCarousel({ objectArr }) {
     let gap = gapStyle.gap;
     gap = parseInt(gap, 10);
     imageWidth = parseInt(imageWidth, 10);
-    return genreWidthRef.current + gap * ( amountOfStoryInSlide.current - 1);
+    return genreWidthRef.current + gap * (amountOfStoryInSlide.current - 1);
   }
   function aquireGap() {
     const gapStyle = window.getComputedStyle(genreStoriesElemRef.current);
@@ -95,16 +95,19 @@ export default function GenreCarousel({ objectArr }) {
     setSlideIndex((prevIndex) => (prevIndex === count - 1 ? 0 : prevIndex + 1));
   }
   return (
-    <div className={style["genre"]}>
-      <Link className={style["genre-title"]} to={`/Stories/genres/${objectArr.genrePath}`}>
+    <div className={style.genre}>
+      <Link
+        className={style.genreTitle}
+        to={`/Stories/genres/${objectArr.genrePath}`}
+      >
         <h2>Genre</h2>
       </Link>
-      <div className={style["genre-inner"]}>
-        <button className={style["previous-button"]} onClick={previous}>
+      <div className={style.genreInner}>
+        <button className={style.previousButton} onClick={previous}>
           previous
         </button>
         <div
-          className={style["genre-stories"]}
+          className={style.genreStories}
           ref={genreStoriesElemRef}
           style={{
             width: `${widthStyle}px`,
@@ -114,29 +117,33 @@ export default function GenreCarousel({ objectArr }) {
             <div
               id={basket?.[slideIndex]?.includes(storyIndex) ? "in" : "out"}
               key={storyIndex}
-              className={style["story"]}
+              className={style.story}
               style={{
-                translate: `${
+                transform: `translateX(${
                   -100 * amountOfStoryInSlide.current * slideIndex
-                }%`,
+                }%)`,
                 ...(basket?.[slideIndex]?.includes(storyIndex)
                   ? {}
                   : {
-                      marginLeft: `${-findGap}px`
+                      marginLeft: `${-findGap}px`,
                     }),
               }}
             >
-              <Link className={style["story-link"]} to={`/Stories/${story.storyPath}`}>
+              <Link
+                className={style.storyLink}
+                to={`/Stories/${story.storyPath}`}
+              >
                 <img
-                  className={style["story-image"]}
+                  className={style.storyImage}
                   ref={imageElemRef}
                   src={story.storyImage}
-                ></img>
+                  alt="Story"
+                />
               </Link>
             </div>
           ))}
         </div>
-        <button className={style["forward-button"]} onClick={forward}>
+        <button className={style.forwardButton} onClick={forward}>
           forward
         </button>
       </div>

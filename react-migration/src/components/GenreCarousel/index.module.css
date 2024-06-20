@@ -3,44 +3,54 @@
   margin: 10px;
   padding: 5px;
 }
-.genre-title {
+
+.genreTitle {
   text-decoration: none;
 }
-.genre-inner {
+
+.genreInner {
   display: flex;
 }
-.genre-stories {
+
+.genreStories {
   display: flex;
   width: 1200px;
   overflow: hidden;
   gap: 2px;
 }
+
 .story {
-  transition: translate 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
 }
+
 #in {
 }
+
 #out {
-    background-color: yellow;
+  background-color: yellow;
 }
-.story-link {
+
+.storyLink {
 }
-.story-image {
+
+.storyImage {
   width: 300px;
   display: block;
 }
-.previous-button {
+
+.previousButton {
   margin-right: 5px;
 }
-.forward-button {
+
+.forwardButton {
   margin-left: 5px;
 }
 
 @media screen and (max-width: 1020px) {
-  .genre-stories {
+  .genreStories {
     width: 600px;
   }
-  .story-image {
+  .storyImage {
     width: 200px;
   }
 }
