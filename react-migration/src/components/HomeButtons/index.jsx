@@ -1,21 +1,27 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 
-import './index.css'
+import style from "./index.module.css";
 
 export default function HomeButtons() {
+  const btnInfo = [
+    { cn: "achievementButton", path: "/", label: "Achievements" },
+    { cn: "experiencesButton", path: "/", label: "Camera" },
+    { cn: "experiencesButton", path: "/", label: "Stories" },
+    { cn: "experiencesButton", path: "/", label: "Scenarios" },
+    { cn: "experiencesButton", path: "/", label: "Type of Emotions" },
+  ];
 
-    const btnInfo = [
-        { cn: "achievement-button", path: "/", label: "Achievements" },
-        { cn: "experiences-button", path: "/", label: "Camera" },
-        { cn: "experiences-button", path: "/", label: "Stories" },
-        { cn: "experiences-button", path: "/", label: "Scenarios" },
-        { cn: "experiences-button", path: "/", label: "Type of Emotions" },
-    ]
-
-    return (
-        <div class="experiences-button-container" id="button-container">
-            {btnInfo.map((info) => <Link className={info.cn} to={info.path}>{info.label}</Link>)}
-        </div>
-    )
+  return (
+    <div
+      className={style.experiencesButtonContainer}
+      id={style.buttonContainer}
+    >
+      {btnInfo.map((info, index) => (
+        <Link className={style[info.cn]} to={info.path} key={index}>
+          {info.label}
+        </Link>
+      ))}
+    </div>
+  );
 }

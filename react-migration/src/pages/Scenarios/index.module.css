@@ -1,4 +1,4 @@
-.scenario-card {
+.scenarioCard {
   display: flex;
   width: fit-content;
   margin: auto;
@@ -8,17 +8,17 @@
   border-radius: 15px;
 }
 
-.scenario-card-image {
+.scenarioCardImage {
   width: 300px;
   border-radius: 15px 15px 0 0;
 }
 
-.scenario-header {
+.scenarioHeader {
   text-align: center;
   text-decoration: underline;
 }
 
-.sub-section {
+.subSection {
   display: grid;
   grid-template-columns: 2;
 }
@@ -28,26 +28,26 @@
   margin: auto auto 4px;
 }
 
-.scenario-emotion {
+.scenarioEmotion {
   grid-column: span 1;
   font-size: 15px;
   margin: auto;
   width: 120px;
 }
 
-.scenario-description {
+.scenarioDescription {
   grid-column: span 2;
   padding: 5px;
 }
 
-.scenario-card-container {
+.scenarioCardContainer {
   display: grid;
   margin: 10px 20px;
   grid-template-columns: auto auto auto auto auto;
   gap: 40px 20px;
 }
 
-.loading-header {
+.loadingHeader {
   position: relative;
   border-radius: 15px 15px 0 0;
   display: flex;
@@ -59,19 +59,19 @@
 }
 
 @media screen and (max-width: 1650px) {
-  .scenario-card-container {
+  .scenarioCardContainer {
     grid-template-columns: auto auto auto;
   }
 }
 
 @media screen and (max-width: 1020px) {
-  .scenario-card-container {
+  .scenarioCardContainer {
     grid-template-columns: auto auto;
   }
 }
 
 @media screen and (max-width: 679px) {
-  .scenario-card-container {
+  .scenarioCardContainer {
     grid-template-columns: auto;
     gap: 40px;
   }

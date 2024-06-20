@@ -2,10 +2,11 @@ import React from 'react'
 import Carousel from '../../components/Carousel'
 import HomeButtons from '../../components/HomeButtons'
 
-import './index.css'
+import style from './index.module.css'
+
 export default function HomePage() {
     return (
-        <div className='main-content'>
+        <div className={style.mainContent}>
             <Carousel />
             <HomeButtons />
         </div>
