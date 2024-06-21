@@ -8,6 +8,7 @@ import Stories from "./pages/Stories";
 import Achievements from "./pages/Achievements";
 import Camera from "./pages/Camera";
 import Scenarios from "./pages/Scenarios";
+import StoryLayout from "./pages/StoryLayout";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/Scenarios" element={<Scenarios />} />
         <Route path="/Stories" element={<Stories />} />
         <Route path="/Stories/genre" element={<Stories />} />
-        <Route path="/Stories:pathID" element={<Stories />} />
+        <Route path="/Stories/:pathID" element={<StoryLayout/>} />
         <Route path="/Camera" element={<Camera />} />
       </Routes>
     </>

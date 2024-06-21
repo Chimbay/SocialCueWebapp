@@ -1,0 +1,66 @@
+.container {
+  position: relative;
+  display: flex;
+  margin: 10px;
+  width: fit-content;
+}
+
+.video-section {
+  position: relative;
+  width: 720px;
+  height: 560px;
+}
+.emotion-section {
+}
+#video {
+  position: absolute; /* Ensures the video stays in place */
+
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+.output_canvas {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+#output_canvas {
+  position: absolute;
+
+  pointer-events: none; /* Prevent interaction with the canvas */
+}
+
+.emotion-item {
+  margin: 10px;
+  border: 1px solid black;
+  width: 400px;
+}
+.span-emotion {
+  font-weight: bold;
+  padding: 5px;
+}
+#neutral {
+  background-color: #808080; /* gray */
+}
+#happy {
+  background-color: aqua;
+}
+#sad {
+  background-color: #6495ed; /* cornflower blue */
+}
+#angry {
+  background-color: #ff6347; /* tomato */
+}
+#fearful {
+  background-color: rgb(255, 118, 230);
+}
+#disgusted {
+  background-color: #ffff00; /* yellow */
+}
+#surprised {
+  background-color: #32cd32; /* lime green */
+}
+
+.span-value {
+  padding: 0;
+}

@@ -1,81 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 
-import "./index.css";
+import Webcam from '../../components/Webcam'
+
+import style from "./index.module.css";
 
 export default function StoryLayout() {
+  const [emotionButton, setEmotionbutton] = useState(false);
 
-  const {pathID} = useParams();
+  const { pathID } = useParams();
 
   return (
     <>
-      <div className="story-scenery">
-        <img className="story-image" src="story-page-1.jpg" />
-        <p className="story-text">
-          In the Henderson backyard, Emma, Jack, and Lily played joyfully, their
-          laughter filling the air. As they raced and danced, one couldn't help
-          but smile, feeling the warmth of their happiness. What{" "}
-          <button id="webcamButton">emotion</button> is the family experiencing?
+      <div className={style.storyScenery}>
+        <img className={style.storyImage} src="story-page-1.jpg" alt="Story Page" />
+        <p className={style.storyText}>
+          <button id={style.webcamButton} onClick={() => {
+            setEmotionbutton(!emotionButton)
+          }} className={style.webcamButton}>Button</button>
         </p>
+        {emotionButton && (
+          <>
+            <Webcam />
+          </>
+        )}
       </div>
 
-      <div className="story-description">
-        <div className="story-details">
-          <h3 className="story-title">Story Title</h3>
-          <div className="story-info">
-            <div className="story-author">
-              <span className="label">Author:</span>
-              <span className="namee">Anthony Chimbay</span>
+      <div className={style.storyDescription}>
+        <div className={style.storyDetails}>
+          <h3 className={style.storyTitle}>Story Title</h3>
+          <div className={style.storyInfo}>
+            <div className={style.storyAuthor}>
+              <span className={style.label}>Author:</span>
+              <span className={style.namee}>Anthony Chimbay</span>
             </div>
-            <div className="age-rating">
-              <span className="label">Age-rating:</span>
-              <span className="name">6+</span>
+            <div className={style.ageRating}>
+              <span className={style.label}>Age-rating:</span>
+              <span className={style.name}>6+</span>
             </div>
-            <div className="story-read-time">
-              <span className="label">Read time:</span>
-              <span className="name">3+ mins</span>
+            <div className={style.storyReadTime}>
+              <span className={style.label}>Read time:</span>
+              <span className={style.name}>3+ mins</span>
             </div>
           </div>
         </div>
 
-        <div className="emotion-details">
-          <h3 className="story-title">Emotions focused on</h3>
-          <div className="emotion-list">
-            <span className="emotion-present">Happiness</span>
-            <span className="emotion-present">Excitement</span>
+        <div className={style.emotionDetails}>
+          <h3 className={style.storyTitle}>Emotions focused on</h3>
+          <div className={style.emotionList}>
+            <span className={style.emotionPresent}>Happiness</span>
+            <span className={style.emotionPresent}>Excitement</span>
           </div>
         </div>
 
-        <div className="story-summary">
-          <h3 className="story-title">Description</h3>
-          <p className="description">
+        <div className={style.storySummary}>
+          <h3 className={style.storyTitle}>Description</h3>
+          <p className={style.description}>
             "In a vibrant neighborhood, the Henderson family's home radiates
             with the laughter of Emma, Jack, and Lily, who embark on imaginative
             adventures in their backyard. Led by Emma's fearless spirit, Jack's
             playful antics, and Lily's enchanting imagination, their summer days
             become extraordinary tales of exploration and camaraderie, creating
             cherished memories that echo with the timeless joy of
-            childhood.Through their boundless adventures and unbreakable bonds,
+            childhood. Through their boundless adventures and unbreakable bonds,
             the Henderson family's home becomes a sanctuary of laughter and
             love, where every moment is an invitation to celebrate the magic of
             togetherness."
           </p>
         </div>
 
-        <div className="story-suggestions">
-          <h3 className="story-title">Story's that are simliar</h3>
-          <div className="story-display">
-            <div className="display">
+        <div className={style.storySuggestions}>
+          <h3 className={style.storyTitle}>Stories that are similar</h3>
+          <div className={style.storyDisplay}>
+            <div className={style.display}>
               <div>
-                <img src="../images/woman.jpeg" />
+                <img src="../images/woman.jpeg" alt="A woman and her library" />
                 <p>A woman and her library</p>
               </div>
               <div>
-                <img src="../images/dog.jpeg" />
-                <p>Lets go to space!</p>
+                <img src="../images/dog.jpeg" alt="Let's go to space!" />
+                <p>Let's go to space!</p>
               </div>
               <div>
-                <img src="../images/girl.jpeg" />
+                <img src="../images/girl.jpeg" alt="My Kingdom" />
                 <p>My Kingdom</p>
               </div>
             </div>
