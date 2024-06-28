@@ -1,79 +1,102 @@
 import React, { useEffect, useRef, useState } from "react";
-import './face-api.min.jsx';
-import "./index.css";
+import * as faceapi from "face-api.js";
+import style from "./index.module.css";
 
-
-export default function Webcam() {
-  const videoRef = useRef(null); // Ref for the video element
-  const canvasRef = useRef(null); // Ref for the canvas element
-  const [emotionList, setEmotionList] = useState(null);
+export default function Webcam({ emotionDetection }) {
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [emotion, setEmotion] = useState(null);
 
   useEffect(() => {
     const loadModels = async () => {
       await Promise.all([
-        console.log(faceapi),
-        faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-        faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-        faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-        faceapi.nets.faceExpressionNet.loadFromUri('/models'),
-        faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
+        faceapi.nets.faceExpressionNet.loadFromUri("/models"),
+        faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
       ]);
-      startVideo(); // Once models are loaded, start the video
+      startVideo();
     };
 
-    loadModels(); // Call loadModels when component mounts
+    loadModels();
   }, []);
 
   const startVideo = () => {
     navigator.mediaDevices
-      .getUserMedia({ video: true }) // Changed to mediaDevices API
+      .getUserMedia({ video: true })
       .then((stream) => {
         if (videoRef.current) {
-          videoRef.current.srcObject = stream; // Set stream as video source
+          videoRef.current.srcObject = stream;
           videoRef.current.addEventListener("loadedmetadata", () => {
-            setupCanvas(); // Call setupCanvas once video metadata is loaded
+            setupVideo();
           });
         }
       })
       .catch((err) => console.error("Error accessing media devices:", err));
   };
 
-  const setupCanvas = () => {
-    if (videoRef.current && canvasRef.current) {
-      const canvas = canvasRef.current;
-      const video = videoRef.current;
+  const setupVideo = () => {
+    let currentEmotion;
+    let isWebcamRunning = true;
 
-      canvas.width = video.width;
-      canvas.height = video.height;
+    const runIntervals = async () => {
+      if (!isWebcamRunning) return;
+      currentEmotion = await handleDetection();
+      setEmotion(currentEmotion);
 
-      const displaySize = { width: video.width, height: video.height };
-      faceapi.matchDimensions(canvas, displaySize);
+      if (isWebcamRunning == true) {
+        requestAnimationFrame(runIntervals);
+      }
+    };
+    runIntervals();
 
-      setInterval(async () => {
-        const detectionWithExpressions = await faceapi
-          .detectSingleFace(video, new faceapi.SsdMobilenetv1Options())
-          .withFaceLandmarks()
-          .withFaceExpressions();
-        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    setTimeout(async () => {
+      isWebcamRunning = false
+      emotionDetection(currentEmotion);
+    }, 3000);
+  };
 
-        if (detectionWithExpressions != undefined) {
-          const resizedDetections = faceapi.resizeResults(
-            detectionWithExpressions,
-            displaySize
-          );
-          setEmotionList(detectionWithExpressions.expressions);
-          faceapi.draw.drawDetections(canvas, resizedDetections);
-          faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
-        }
-      }, 100);
+  const handleDetection = async () => {
+    const video = videoRef.current;
+    let emotion = null;
+
+    const detectionWithExpressions = await faceapi
+      .detectSingleFace(video, new faceapi.SsdMobilenetv1Options())
+      .withFaceExpressions();
+
+    if (detectionWithExpressions !== undefined) {
+      const emotionArr = detectionWithExpressions.expressions;
+      // handleDrawing(detectionWithExpressions);
+      emotion = Object.keys(emotionArr).reduce((a, b) =>
+        emotionArr[a] > emotionArr[b] ? a : b
+      );
     }
+    return emotion;
+  };
+
+  const handleDrawing = (detectionWithExpressions) => {
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
+    canvas.width = video.width;
+    canvas.height = video.height;
+
+    const displaySize = { width: video.width, height: video.height };
+    faceapi.matchDimensions(canvas, displaySize);
+
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+
+    const resizedDetections = faceapi.resizeResults(
+      detectionWithExpressions,
+      displaySize
+    );
+    faceapi.draw.drawDetections(canvas, resizedDetections);
+    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
   };
 
   return (
-    <div className="container">
-      <div className="video-section">
+    <div className={style.webcamContainer}>
+      <div className={style.videoSection}>
         <video
-          id="video"
+          className={style.outputVideo}
+          id={style.outputVideo}
           ref={videoRef}
           width="720"
           height="560"
@@ -82,35 +105,13 @@ export default function Webcam() {
         ></video>
         <canvas
           ref={canvasRef}
-          className="output_canvas"
-          id="output_canvas"
+          className={style.outputCanvas}
+          id={style.outputCanvas}
           width="720"
           height="560"
         ></canvas>
       </div>
-      <div className="emotion-section">
-        <span>
-          {emotionList ? (
-            Object.entries(emotionList).map(([emotion, value], index) => (
-              <div className="emotion-item">
-                <span class="span-emotion">{emotion} </span>
-                <span
-                  class="span-value"
-                  style={{
-                    display: "inline-block",
-                    width: `calc(${value * 300}px)`,
-                  }}
-                  id={emotion}
-                >
-                  {value.toFixed(4)}
-                </span>
-              </div>
-            ))
-          ) : (
-            <div>Loading emotions...</div>
-          )}
-        </span>
-      </div>
+      <p>Current emotion: {emotion}</p>
     </div>
   );
 }

@@ -8,11 +8,13 @@ import Stories from "./pages/Stories";
 import Achievements from "./pages/Achievements";
 import Camera from "./pages/Camera";
 import Scenarios from "./pages/Scenarios";
-import StoryLayout from "./pages/StoryLayout";
+import Story from "./pages/Story";
+import Popup from "./components/Popup";
 
 function App() {
   return (
     <>
+      <Popup />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -21,7 +23,7 @@ function App() {
         <Route path="/Scenarios" element={<Scenarios />} />
         <Route path="/Stories" element={<Stories />} />
         <Route path="/Stories/genre" element={<Stories />} />
-        <Route path="/Stories/:pathID" element={<StoryLayout/>} />
+        <Route path="/Stories/:pathID" element={<Story />} />
         <Route path="/Camera" element={<Camera />} />
       </Routes>
     </>
