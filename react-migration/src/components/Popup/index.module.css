@@ -1,0 +1,38 @@
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 1px black solid;
+    background-color: white;
+    padding: 15px;
+
+    width: 500px;
+    height: auto;
+}
+
+.popupNav {
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center; 
+
+    padding-bottom: 5px;
+}
+.logoName {
+    align-items: center;
+}
+.closeButton {
+    margin-left: auto; /* Pushes the button to the far right */
+}
+
+.title{
+    color: #fec04e;
+    text-shadow: 
+    3px 1px #8c67b6,
+    2px 1px #8c67b6;
+    text-align: center;
+}
+.text {
+    font-size: 20px;
+}

@@ -1,0 +1,28 @@
+.webcamContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: fit-content;
+}
+.videoSection {
+  position: relative;
+  width: fit-content;
+}
+
+.outputVideo {
+  display: block;
+}
+#outputVideo {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+.outputCanvas {
+  position: absolute;
+  inset: 0;
+}
+#outputCanvas {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
