@@ -1,0 +1,78 @@
+.scenarioCard {
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  background-color: lightblue;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.scenarioCardImage {
+  width: 300px;
+  border-radius: 15px 15px 0 0;
+}
+
+.scenarioHeader {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.subSection {
+  display: grid;
+  grid-template-columns: 2;
+}
+
+.subheader {
+  grid-column: span 2;
+  margin: auto auto 4px;
+}
+
+.scenarioEmotion {
+  grid-column: span 1;
+  font-size: 15px;
+  margin: auto;
+  width: 120px;
+}
+
+.scenarioDescription {
+  grid-column: span 2;
+  padding: 5px;
+}
+
+.scenarioCardContainer {
+  display: grid;
+  margin: 10px 20px;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 40px 20px;
+}
+
+.loadingHeader {
+  position: relative;
+  border-radius: 15px 15px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background-color: #a8a8a8;
+}
+
+@media screen and (max-width: 1650px) {
+  .scenarioCardContainer {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .scenarioCardContainer {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .scenarioCardContainer {
+    grid-template-columns: auto;
+    gap: 40px;
+  }
+}

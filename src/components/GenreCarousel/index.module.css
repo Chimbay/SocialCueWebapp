@@ -1,0 +1,56 @@
+.genre {
+  background-color: white;
+  margin: 10px;
+  padding: 5px;
+}
+
+.genreTitle {
+  text-decoration: none;
+}
+
+.genreInner {
+  display: flex;
+}
+
+.genreStories {
+  display: flex;
+  width: 1200px;
+  overflow: hidden;
+  gap: 2px;
+}
+
+.story {
+  transition: transform 500ms ease-in-out;
+}
+
+#in {
+}
+
+#out {
+  background-color: yellow;
+}
+
+.storyLink {
+}
+
+.storyImage {
+  width: 300px;
+  display: block;
+}
+
+.previousButton {
+  margin-right: 5px;
+}
+
+.forwardButton {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 1020px) {
+  .genreStories {
+    width: 600px;
+  }
+  .storyImage {
+    width: 200px;
+  }
+}
