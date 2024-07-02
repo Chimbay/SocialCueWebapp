@@ -1,0 +1,31 @@
+.roundCarousel {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    border-radius: 200px;
+    z-index: 10;
+}
+.container {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    transform-origin: bottom right;
+    overflow: hidden;
+
+}
+.sectionBackground {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    transform-origin: bottom right;
+}
+.images {
+    width: 10px;
+    height: 10px;
+    transform: translate(5px, -5px);
+    position: absolute;
+    cursor: grab;
+    z-index: 10;
+}

@@ -14,7 +14,7 @@ import Popup from "./components/Popup";
 function App() {
   return (
     <>
-      <Popup />
+      {/* <Popup /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
