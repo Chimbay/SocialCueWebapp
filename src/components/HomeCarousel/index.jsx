@@ -5,7 +5,7 @@ import image3 from "../../images/react-img3.jpeg";
 
 import style from "./index.module.css";
 
-export default function Carousel() {
+export default function HomeCarousel() {
   const [imgIndex, setImgIndex] = useState(0);
   const urlArray = [image1, image2, image3];
 

@@ -1,4 +1,22 @@
 .mainContent {
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
+    height: 100vh;
+}
+
+.footerContainer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.carouselHolder {
+    margin: 0 auto;
+
+    width: fit-content;
+}
+.bottomNav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 50%;
+    background-color: yellow;
 }
