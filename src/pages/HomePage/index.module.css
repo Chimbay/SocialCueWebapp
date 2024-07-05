@@ -6,10 +6,15 @@
 .bodyContent {
     height: 800px;
     display: grid;
-    place-items: center; /* Center both horizontally and vertically */
+    grid-template-columns: 1;
+    place-items: center; 
 }
-.progressSection{
+.progressBar{
     width: fit-content;
+}
+
+.progressModes {
+    grid-template-columns: 1fr 3fr 1fr;
 }
 
 .footerContainer {
@@ -17,7 +22,7 @@
     bottom: 0;
     width: 100%;
 }
-.carouselHolder {
+.roundCarousel {
     position: absolute;
     bottom: 0;
     right: 50%;
