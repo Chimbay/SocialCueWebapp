@@ -1,0 +1,42 @@
+.pamphlet {
+    position: relative;
+    width: 1100px;
+    height: 600px;
+    border: 1px solid black;
+    display: flex;
+}
+.textContainer {
+    width: 45%;
+    height: 100%;
+    border: 1px solid red;
+    box-sizing: border-box;
+
+}
+.visualContainer {
+    width: 55%;
+    height: 100%;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+
+.previousPage,
+.nextPage {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+}
+.previousPage {
+    bottom: 0;
+    left: 0;
+}
+.nextPage {
+    bottom: 0;
+    right: 0;
+}
+.pageNumber {
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    right: 0;
+}
+

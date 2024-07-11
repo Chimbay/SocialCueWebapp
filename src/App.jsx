@@ -10,6 +10,7 @@ import Camera from "./pages/Camera";
 import Scenarios from "./pages/Scenarios";
 import Story from "./pages/Story";
 import Popup from "./components/Popup";
+import Playground from "./pages/Playground";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/Playground" element={<Playground />} />
         <Route path="/Achievements" element={<Achievements />} />
         <Route path="/TypesOfEmotions" element={<TypesOfEmotions />} />
         <Route path="/Scenarios" element={<Scenarios />} />
