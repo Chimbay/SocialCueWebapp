@@ -1,0 +1,19 @@
+.quizContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.quizImage {
+    height: 400px;
+}
+.answerOptions {
+    display: grid;
+    grid-template-columns: repeat(2, auto)
+}
+.answerOption {
+    width: 170px;
+    margin: 10px;
+}

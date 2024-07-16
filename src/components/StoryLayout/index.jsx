@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 
 import Webcam from "../Webcam";
 import style from "./index.module.css";
@@ -57,6 +57,7 @@ export default function StoryLayout() {
   // Fetch the story
   useEffect(() => {
     const dir = pathFetch.find((dir) => dir.storyID === pathID);
+    console.log("hello")
     if (dir) {
       setStory(dir);
       setCurrentPageNumber(0);

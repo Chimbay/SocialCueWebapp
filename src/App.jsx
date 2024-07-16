@@ -11,21 +11,27 @@ import Scenarios from "./pages/Scenarios";
 import Story from "./pages/Story";
 import Popup from "./components/Popup";
 import Playground from "./pages/Playground";
+import EmotionExplorer from "./components/EmotionExplorer";
+import EmotionQuiz from "./components/EmotionQuiz";
+
 
 function App() {
   return (
     <>
       {/* <Popup /> */}
-      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/Playground" element={<Playground />} />
+        <Route path="/Playground" element={<Playground />}>
+          <Route path="Learning/:groundPathID" element={<EmotionExplorer />} />
+          <Route path="Quiz/:groundPathID" element={<EmotionQuiz/>} />
+        </Route>
         <Route path="/Achievements" element={<Achievements />} />
         <Route path="/TypesOfEmotions" element={<TypesOfEmotions />} />
         <Route path="/Scenarios" element={<Scenarios />} />
-        <Route path="/Stories" element={<Stories />} />
-        <Route path="/Stories/genre" element={<Stories />} />
-        <Route path="/Stories/:pathID" element={<Story />} />
+        <Route path="/Stories" element={<Stories />}>
+          <Route path="genre" element={<Stories />} />
+          <Route path=":pathID" element={<Story />} />
+        </Route>
         <Route path="/Camera" element={<Camera />} />
       </Routes>
     </>

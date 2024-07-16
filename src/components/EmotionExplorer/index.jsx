@@ -1,17 +1,30 @@
 import React, { useState, useEffect } from "react";
 
+import happpyImage from "../../images/children-playing-tag.jpg";
+
 import style from "./index.module.css";
+import { useParams } from "react-router-dom";
 
 export default function () {
+  const { groundPathID } = useParams();
+
   const explore = [
     {
-      learnID: "01",
-      pages: [
-        {
-          title: "What is happiness?",
+      category: "happy",
+      items: {
+        explorer: {
+          pages: [
+            {
+              title: "What is happiness?",
+              text: "Happiness is like a special kind of magic that makes your heart feel warm and your face light up with a big smile. Imagine you just discovered a secret garden full of beautiful flowers or your favorite superhero gave you a high-five. That amazing, tingly feeling you get inside is called happiness.",
+            },
+            {
+            },
+          ],
         },
-        {},
-      ],
+        test: [
+        ],
+      },
     },
   ];
 
@@ -23,10 +36,13 @@ export default function () {
 
   // Fetch the explorer
   useEffect(() => {
-    const explorerDir = explore.find((dir) => dir.learnID === "01");
-    if (explorerDir) {
-      const collectiveOfPages = explorerDir.pages;
-      setExplorer(explorerDir);
+    const emotionFetch = explore.find((dir) => dir.category === groundPathID);
+    if (emotionFetch) {
+      const items = emotionFetch.items;
+      const exploreDir = items.explorer;
+      const collectiveOfPages = exploreDir.pages
+      
+      setExplorer(exploreDir);
       setPages(collectiveOfPages);
       setCurrentPage(collectiveOfPages[0]);
       setCurrentPageNumber(0);
@@ -34,6 +50,13 @@ export default function () {
       console.error("Explorer with learnID '01' not found.");
     }
   }, []);
+
+  useEffect(() => {
+    if (pages) {
+      const updatedPage = pages[currentPageNumber];
+      setCurrentPage(updatedPage);
+    }
+  }, [currentPageNumber]);
 
   function checkRightPageBound() {
     return currentPageNumber < pages.length - 1;
@@ -52,26 +75,28 @@ export default function () {
 
   return (
     <div className={style.mainContent}>
-      <div className={style.pamphlet}>
-        <div className={style.textContainer}>
-          {currentPage && (
-            <>
-              <h1 className={style.title}>
-                {currentPage.title}
-              </h1>
-              <p></p>
-            </>
-          )}
+      {currentPage ? (
+        <div className={style.pamphlet}>
+          <div className={style.textContainer}>
+            <h1 className={style.title}>{currentPage.title}</h1>
+            <p className={style.text}>{currentPage.text}</p>
+          </div>
+          <div className={style.visualContainer}>
+            <img
+              className={style.image}
+              src={happpyImage}
+              alt="Image description"
+            />
+          </div>
+          <button className={style.previousPage} onClick={flipPageBack}>
+            prev
+          </button>
+          <button className={style.nextPage} onClick={flipPageOver}>
+            next
+          </button>
+          <p className={style.pageNumber}>{currentPageNumber}</p>
         </div>
-        <div className={style.visualContainer}></div>
-        <button className={style.previousPage} onClick={flipPageBack}>
-          prev
-        </button>
-        <button className={style.nextPage} onClick={flipPageOver}>
-          next
-        </button>
-        <p className={style.pageNumber}>{currentPageNumber}</p>
-      </div>
+      ) : null}
     </div>
   );
 }

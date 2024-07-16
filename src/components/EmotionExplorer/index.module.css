@@ -5,18 +5,28 @@
     border: 1px solid black;
     display: flex;
 }
+
 .textContainer {
     width: 45%;
     height: 100%;
     border: 1px solid red;
     box-sizing: border-box;
-
 }
+.title {
+    text-align: center;
+}
+.text {
+    font-size: xx-large;
+}
+
 .visualContainer {
     width: 55%;
     height: 100%;
     border: 1px solid blue;
     box-sizing: border-box;
+}
+.image {
+    height: 100%;
 }
 
 .previousPage,
