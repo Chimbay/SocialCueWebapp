@@ -8,7 +8,10 @@ export default function AccountForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (formStatus == "signup") console.log(e.target[0].value);
+    const data = Object.fromEntries(new FormData(e.target));
+
+    console.log(data);
+    e.target.reset();
   }
 
   return (
@@ -22,31 +25,71 @@ export default function AccountForm() {
       {formStatus == "signup" && (
         <>
           <div className={style.typeButtonContainer}>
-            <button className={style.accountType}>Parents/Gaurdians</button>
-            <button className={style.accountType}>Kids</button>
+            <input
+              className={style.accountTypeRadio}
+              id="parent/gaurdian"
+              required
+              name="account-type"
+              type="radio"
+              value="parent/gaurdian"
+            />
+            <label className={style.accountTypeLabel} htmlFor="parent/gaurdian">
+              Parent/Gaurdian
+            </label>
+            <input
+              className={style.accountTypeRadio}
+              id="kids"
+              required
+              name="account-type"
+              type="radio"
+              value="kids"
+            />
+            <label className={style.accountTypeLabel} htmlFor="kids">
+              Kids
+            </label>
           </div>
           <label className={style.label}>
             First Name
-            <input type="text" className={style.input} />
+            <input
+              required
+              name="first-name"
+              type="text"
+              className={style.input}
+            />
           </label>
           <label className={style.label}>
             Last Name
-            <input type="text" className={style.input} />
+            <input
+              required
+              name="last-name"
+              type="text"
+              className={style.input}
+            />
           </label>
         </>
       )}
       <label className={style.label}>
         Email Address
-        <input type="text" className={style.input} />
+        <input required name="email" type="text" className={style.input} />
       </label>
       <label className={style.label}>
         Your Password
-        <input type="password" className={style.input} />
+        <input
+          required
+          name="password"
+          type="password"
+          className={style.input}
+        />
       </label>
       {formStatus == "signup" && (
         <label className={style.label}>
           Confirm Your Password
-          <input type="password" className={style.input} />
+          <input
+            required
+            name="confirm-password"
+            type="password"
+            className={style.input}
+          />
         </label>
       )}
       <button type="submit" className={style.submitButton}>
