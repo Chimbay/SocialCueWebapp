@@ -1,32 +1,61 @@
 import React, { useState, useEffect } from "react";
 
-import happpyImage from "../../images/children-playing-tag.jpg";
+import happyImage from "../../images/readingFamily.png";
+import icecreamFamily from "../../images/icecreamFamily.png";
+import grandmaFamily from "../../images/grandmaFamily.png";
 
 import style from "./index.module.css";
 import { useParams } from "react-router-dom";
 
-export default function () {
-  const { groundPathID } = useParams();
-
-  const explore = [
-    {
-      category: "happy",
-      items: {
-        explorer: {
-          pages: [
-            {
-              title: "What is happiness?",
-              text: "Happiness is like a special kind of magic that makes your heart feel warm and your face light up with a big smile. Imagine you just discovered a secret garden full of beautiful flowers or your favorite superhero gave you a high-five. That amazing, tingly feeling you get inside is called happiness.",
-            },
-            {
-            },
-          ],
-        },
-        test: [
+const explore = [
+  {
+    category: "happy",
+    items: {
+      explorer: {
+        pages: [
+          {
+            title: "What is happiness?",
+            text: "Happiness is like a special kind of magic that makes your heart feel warm and your face light up with a big smile. Imagine you're sitting with a friend, sharing a story that makes you both laugh and feel connected. ",
+            src: happyImage,
+          },
+          {
+            title: "Happiness is fun!",
+            text: "Happiness is found in those moments when you're enjoying a book together, feeling safe and loved. It’s the joy that comes from spending time with someone special, sharing fun and laughter.",
+            src: grandmaFamily,
+          },
+        ],
+      },
+      quiz: {
+        questions: [
+          {
+            question:
+              "Today my mom took me to the playground and bought me my favorite ice cream. I felt very happy",
+            answer: true,
+            src: happyImage,
+          },
+          {
+            question:
+              "Today my brother read two of my favorite books to me. I love my brother, and I felt very happy",
+            answer: true,
+            src: icecreamFamily,
+          },
+          {
+            question:
+              "Today I visited my grandparents and swam in the lake with them. I felt very happy",
+            answer: true,
+            src: grandmaFamily,
+          },
+          {
+            question: "Are they happy",
+          },
         ],
       },
     },
-  ];
+  },
+];
+
+export default function () {
+  const { groundPathID } = useParams();
 
   const [explorer, setExplorer] = useState(null);
 
@@ -40,8 +69,8 @@ export default function () {
     if (emotionFetch) {
       const items = emotionFetch.items;
       const exploreDir = items.explorer;
-      const collectiveOfPages = exploreDir.pages
-      
+      const collectiveOfPages = exploreDir.pages;
+
       setExplorer(exploreDir);
       setPages(collectiveOfPages);
       setCurrentPage(collectiveOfPages[0]);
@@ -69,9 +98,12 @@ export default function () {
       setCurrentPageNumber((number) => (number = number - 1));
   }
   function flipPageOver() {
+
     if (checkRightPageBound())
       setCurrentPageNumber((number) => (number = number + 1));
   }
+
+  
 
   return (
     <div className={style.mainContent}>
@@ -84,7 +116,7 @@ export default function () {
           <div className={style.visualContainer}>
             <img
               className={style.image}
-              src={happpyImage}
+              src={currentPage.src}
               alt="Image description"
             />
           </div>
