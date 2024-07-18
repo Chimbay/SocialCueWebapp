@@ -1,16 +1,28 @@
 import React from "react";
 import style from "./index.module.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function AccountForm() {
   const { formStatus } = useParams();
+  const nav = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
 
     const data = Object.fromEntries(new FormData(e.target));
 
-    console.log(data);
+    if (!data.accountType) {
+      console.log(`Email: ${data.email}`);
+      console.log(`Password: ${data.password}`);
+    } else {
+      console.log(`Account Type: ${data.accountType}`);
+      console.log(`First Name: ${data.firstName}`);
+      console.log(`Last Name: ${data.lastName}`);
+      console.log(`Email: ${data.email}`);
+      console.log(`Password: ${data.password}`);
+    }
+
+    nav("/");
     e.target.reset();
   }
 
@@ -29,7 +41,7 @@ export default function AccountForm() {
               className={style.accountTypeRadio}
               id="parent/gaurdian"
               required
-              name="account-type"
+              name="accountType"
               type="radio"
               value="parent/gaurdian"
             />
@@ -40,7 +52,7 @@ export default function AccountForm() {
               className={style.accountTypeRadio}
               id="kids"
               required
-              name="account-type"
+              name="accountType"
               type="radio"
               value="kids"
             />
@@ -52,7 +64,7 @@ export default function AccountForm() {
             First Name
             <input
               required
-              name="first-name"
+              name="firstName"
               type="text"
               className={style.input}
             />
@@ -61,7 +73,7 @@ export default function AccountForm() {
             Last Name
             <input
               required
-              name="last-name"
+              name="lastName"
               type="text"
               className={style.input}
             />
@@ -86,7 +98,7 @@ export default function AccountForm() {
           Confirm Your Password
           <input
             required
-            name="confirm-password"
+            name="confirmPassword"
             type="password"
             className={style.input}
           />
