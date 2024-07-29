@@ -13,17 +13,19 @@ import Popup from "./components/Popup";
 import Playground from "./pages/Playground";
 import EmotionExplorer from "./components/EmotionExplorer";
 import EmotionQuiz from "./components/EmotionQuiz";
-
+import EmotionTest from "./components/EmotionTest";
 
 function App() {
   return (
     <>
       {/* <Popup /> */}
+      {/* <Navbar/> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Playground" element={<Playground />}>
           <Route path="Learning/:groundPathID" element={<EmotionExplorer />} />
-          <Route path="Quiz/:groundPathID" element={<EmotionQuiz/>} />
+          <Route path="Quiz/:groundPathID" element={<EmotionQuiz />} />
+          <Route path="Test/:groundPathID" element={<EmotionTest />} />
         </Route>
         <Route path="/Achievements" element={<Achievements />} />
         <Route path="/TypesOfEmotions" element={<TypesOfEmotions />} />

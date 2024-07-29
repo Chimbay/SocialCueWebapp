@@ -4,7 +4,7 @@ import happyImage from "../../images/readingFamily.png";
 import icecreamFamily from "../../images/icecreamFamily.png";
 import grandmaFamily from "../../images/grandmaFamily.png";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 const explore = [
   {
     category: "happy",
@@ -49,6 +49,7 @@ const explore = [
 
 export default function EmotionQuiz() {
   const { groundPathID } = useParams();
+  const navigate = useNavigate();
 
   const [quiz, setQuiz] = useState(null);
   const [questions, setQuestions] = useState(null);
@@ -85,15 +86,21 @@ export default function EmotionQuiz() {
     return currentQuestionNumber < questions.length - 1;
   }
   function previousQuestion() {
-    if (checkLeftQuestionBound())
+    if (checkLeftQuestionBound()) {
       setCurrentQuestionNumber((number) => (number = number - 1));
+    } else {
+      previousSection();
+    }
   }
   function nextQuestion() {
     if (checkRightQuestionBound())
       setCurrentQuestionNumber((number) => (number = number + 1));
   }
+  function previousSection() {
+    navigate(`/playground/learning/${groundPathID}`)
+  }
 
-  const isCorrectAnswer = (isCorrect) => {
+  function isCorrectAnswer(isCorrect){
     setAnswer(isCorrect ? "correct" : "incorrect");
     startTimer();
   };

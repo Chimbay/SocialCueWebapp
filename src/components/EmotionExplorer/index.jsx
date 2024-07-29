@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import happyImage from "../../images/readingFamily.png";
 import icecreamFamily from "../../images/icecreamFamily.png";
 import grandmaFamily from "../../images/grandmaFamily.png";
+import bookBackground from "../../images/book-background.png";
 
 import style from "./index.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const explore = [
   {
@@ -56,6 +57,7 @@ const explore = [
 
 export default function () {
   const { groundPathID } = useParams();
+  const navigate = useNavigate();
 
   const [explorer, setExplorer] = useState(null);
 
@@ -98,36 +100,36 @@ export default function () {
       setCurrentPageNumber((number) => (number = number - 1));
   }
   function flipPageOver() {
-
-    if (checkRightPageBound())
+    if (checkRightPageBound()) {
       setCurrentPageNumber((number) => (number = number + 1));
+    } else {
+      nextSection();
+    }
   }
-
-  
+  function nextSection() {
+    navigate(`/playground/quiz/${groundPathID}`);
+  }
 
   return (
     <div className={style.mainContent}>
       {currentPage ? (
-        <div className={style.pamphlet}>
-          <div className={style.textContainer}>
-            <h1 className={style.title}>{currentPage.title}</h1>
-            <p className={style.text}>{currentPage.text}</p>
+        <>
+          <img className={style.bookBackground} src={bookBackground}></img>
+          <div className={style.pamphlet}>
+            <div className={style.textContainer}>
+              <h1 className={style.title}>{currentPage.title}</h1>
+              <p className={style.text}>{currentPage.text}</p>
+            </div>
+            <div className={style.visualContainer}></div>
+            <button className={style.previousPage} onClick={flipPageBack}>
+              prev
+            </button>
+            <button className={style.nextPage} onClick={flipPageOver}>
+              next
+            </button>
+            <p className={style.pageNumber}>{currentPageNumber}</p>
           </div>
-          <div className={style.visualContainer}>
-            <img
-              className={style.image}
-              src={currentPage.src}
-              alt="Image description"
-            />
-          </div>
-          <button className={style.previousPage} onClick={flipPageBack}>
-            prev
-          </button>
-          <button className={style.nextPage} onClick={flipPageOver}>
-            next
-          </button>
-          <p className={style.pageNumber}>{currentPageNumber}</p>
-        </div>
+        </>
       ) : null}
     </div>
   );
