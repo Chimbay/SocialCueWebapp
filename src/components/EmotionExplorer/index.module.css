@@ -1,0 +1,61 @@
+.pamphlet {
+    position: relative;
+    width: 900px;
+    height: 650px;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%, 7%);
+}
+.bookBackground {
+    position: absolute;
+    z-index: -1;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.textContainer {
+    width: 50%;
+    height: 600px;
+    box-sizing: border-box;
+}
+.title {
+    text-align: center;
+}
+.text {
+    font-size: xx-large;
+    width: 80%;
+}
+
+.visualContainer {
+    width: 50%;
+    height: 600px;
+    box-sizing: border-box;
+}
+.image {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.previousPage,
+.nextPage {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+}
+.previousPage {
+    bottom: 0;
+    left: 0;
+}
+.nextPage {
+    bottom: 0;
+    right: 0;
+}
+.pageNumber {
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    right: 0;
+}
+

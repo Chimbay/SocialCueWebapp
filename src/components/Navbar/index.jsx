@@ -6,7 +6,7 @@ import reject from "../../images/reject.png";
 import NavbarButton from "../NavbarButton/index";
 import React from "react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const btnInfo = [
   { cn: "navButton", path: "/", label: "Home" },
@@ -18,12 +18,10 @@ const btnInfo = [
 ];
 
 export default function Navbar() {
-  
   const [mobNavStyling, setMobNavStyling] = useState({
     height: "0",
     padding: "0",
   });
-  const location = useLocation();
 
   function handleClick(e) {
     if (mobNavStyling.height == "0") {
@@ -33,11 +31,6 @@ export default function Navbar() {
       e.target.src = more;
       setMobNavStyling({ height: "0", padding: "0" });
     }
-  }
-
-  // Doesn't render on homepage
-  if (location.pathname === '/') {
-    return null;
   }
 
   return (

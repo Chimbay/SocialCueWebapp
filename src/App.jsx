@@ -1,6 +1,6 @@
-import Navbar from "./components/Navbar";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 import HomePage from "./pages/HomePage";
 import TypesOfEmotions from "./pages/TypesOfEmotions";
@@ -10,6 +10,11 @@ import Camera from "./pages/Camera";
 import Scenarios from "./pages/Scenarios";
 import Story from "./pages/Story";
 import Popup from "./components/Popup";
+import Playground from "./pages/Playground";
+import EmotionExplorer from "./components/EmotionExplorer";
+import EmotionQuiz from "./components/EmotionQuiz";
+import EmotionTest from "./components/EmotionTest";
+import AccountForm from "./pages/AccountForm";
 
 function App() {
   return (
@@ -18,13 +23,26 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/Achievements" element={<Achievements />} />
-        <Route path="/TypesOfEmotions" element={<TypesOfEmotions />} />
-        <Route path="/Scenarios" element={<Scenarios />} />
-        <Route path="/Stories" element={<Stories />} />
-        <Route path="/Stories/genre" element={<Stories />} />
-        <Route path="/Stories/:pathID" element={<Story />} />
-        <Route path="/Camera" element={<Camera />} />
+
+        {/* Playground routes - fixed nested routing */}
+        <Route path="/playground" element={<Playground />}>
+          <Route path="learning/:groundPathID" element={<EmotionExplorer />} />
+          <Route path="quiz/:groundPathID" element={<EmotionQuiz />} />
+          <Route path="test/:groundPathID" element={<EmotionTest />} />
+          <Route path="account/:formStatus" element={<AccountForm />} />
+        </Route>
+
+        {/* Main navigation routes */}
+        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/types-of-emotions" element={<TypesOfEmotions />} />
+        <Route path="/scenarios" element={<Scenarios />} />
+        <Route path="/camera" element={<Camera />} />
+
+        {/* Stories routes - fixed nested routing */}
+        <Route path="/stories" element={<Stories />}>
+          <Route path="genre" element={<Stories />} />
+          <Route path=":pathID" element={<Story />} />
+        </Route>
       </Routes>
     </>
   );

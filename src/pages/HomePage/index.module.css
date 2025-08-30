@@ -1,13 +1,11 @@
 .mainContent {
     position: relative;
-    height: 100vh;
     overflow: hidden;
 }
 .bodyContent {
-    height: 800px;
     display: grid;
     grid-template-columns: 1;
-    place-items: center; 
+    place-items: center;
 }
 .progressBar{
     width: fit-content;
@@ -18,7 +16,7 @@
 }
 
 .footerContainer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -34,6 +32,6 @@
     bottom: 0;
     width: 100%;
     height: 50px;
-    background-color: yellow;
+    background-color: white;
     z-index: 1;
 }

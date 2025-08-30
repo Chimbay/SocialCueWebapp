@@ -1,0 +1,88 @@
+.form {
+  width: 400px;
+  margin: 20px auto;
+  padding: 30px;
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.input {
+  border: 1px solid black;
+  width: 270px;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.submitButton {
+  padding: 6px 5px;
+  background-color: grey;
+  color: white;
+  border: 1px solid black;
+  border-radius: 80px;
+  width: 280px;
+  margin-top: 12px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.typeButtonContainer {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rerouteHeading {
+  text-align: center;
+}
+
+.rerouteHeading::before {
+  content: " ";
+  display: flex;
+  width: 280px;
+  margin-top: 10px;
+  border: 0.5px solid black;
+}
+
+.rerouteButton {
+  border: 1px solid black;
+  width: 280px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 80px;
+  text-decoration: none;
+}
+
+.rerouteButton:focus {
+  color: black;
+}
+
+.rerouteButton:visited {
+  color: black;
+}
+
+.accountTypeRadio {
+  appearance: none;
+}
+
+.accountTypeLabel {
+  font-size: 14px;
+  width: 115px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.accountTypeRadio:checked+label {
+  background-color: lightblue;
+}
