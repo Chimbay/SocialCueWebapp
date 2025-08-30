@@ -14,6 +14,7 @@ import Playground from "./pages/Playground";
 import EmotionExplorer from "./components/EmotionExplorer";
 import EmotionQuiz from "./components/EmotionQuiz";
 import EmotionTest from "./components/EmotionTest";
+import AccountForm from "./pages/AccountForm";
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
           <Route path="Learning/:groundPathID" element={<EmotionExplorer />} />
           <Route path="Quiz/:groundPathID" element={<EmotionQuiz />} />
           <Route path="Test/:groundPathID" element={<EmotionTest />} />
+          <Route path="/AccountForm/:formStatus" element={<AccountForm />} />
         </Route>
+
         <Route path="/Achievements" element={<Achievements />} />
         <Route path="/TypesOfEmotions" element={<TypesOfEmotions />} />
         <Route path="/Scenarios" element={<Scenarios />} />
