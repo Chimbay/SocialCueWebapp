@@ -1,7 +1,6 @@
-import Navbar from "./components/Navbar";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import TypesOfEmotions from "./pages/TypesOfEmotions";
 import Stories from "./pages/Stories";
@@ -20,24 +19,29 @@ function App() {
   return (
     <>
       {/* <Popup /> */}
-      {/* <Navbar/> */}
+      <Navbar /> 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/Playground" element={<Playground />}>
-          <Route path="Learning/:groundPathID" element={<EmotionExplorer />} />
-          <Route path="Quiz/:groundPathID" element={<EmotionQuiz />} />
-          <Route path="Test/:groundPathID" element={<EmotionTest />} />
-          <Route path="/AccountForm/:formStatus" element={<AccountForm />} />
+        
+        {/* Playground routes - fixed nested routing */}
+        <Route path="/playground" element={<Playground />}>
+          <Route path="learning/:groundPathID" element={<EmotionExplorer />} />
+          <Route path="quiz/:groundPathID" element={<EmotionQuiz />} />
+          <Route path="test/:groundPathID" element={<EmotionTest />} />
+          <Route path="account/:formStatus" element={<AccountForm />} />
         </Route>
-
-        <Route path="/Achievements" element={<Achievements />} />
-        <Route path="/TypesOfEmotions" element={<TypesOfEmotions />} />
-        <Route path="/Scenarios" element={<Scenarios />} />
-        <Route path="/Stories" element={<Stories />}>
+        
+        {/* Main navigation routes */}
+        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/types-of-emotions" element={<TypesOfEmotions />} />
+        <Route path="/scenarios" element={<Scenarios />} />
+        <Route path="/camera" element={<Camera />} />
+        
+        {/* Stories routes - fixed nested routing */}
+        <Route path="/stories" element={<Stories />}>
           <Route path="genre" element={<Stories />} />
           <Route path=":pathID" element={<Story />} />
         </Route>
-        <Route path="/Camera" element={<Camera />} />
       </Routes>
     </>
   );

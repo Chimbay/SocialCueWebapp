@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import style from "./index.module.css";
-import { Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 
-export default function () {
+export default function Playground() {
   const { groundPathID } = useParams();
 
   const explore = [
@@ -27,13 +27,13 @@ export default function () {
       },
     },
   ];
-  
 
   const [emotionMode, setEmotionMode] = useState(null);
   const [title, setTitle] = useState(null);
 
   // Fetch the explorer
   useEffect(() => {
+    console.log(groundPathID);
     const mode = explore.find((dir) => dir.category === groundPathID);
     if (mode) {
       setEmotionMode(mode);
@@ -48,7 +48,9 @@ export default function () {
       {emotionMode ? (
         <>
           <div className={style.playGroundNav}>
-            <button className={style.returnHomeButton}></button>
+            <Link to="/">
+              <button className={style.returnHomeButton}></button>
+            </Link>
             <div className={style.bar}>
               <h1 className={style.barTitle}>{title}</h1>
               <div className={style.dropDown}>

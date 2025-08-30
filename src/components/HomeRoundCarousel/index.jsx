@@ -194,6 +194,13 @@ export default function HomeRoundCarousel() {
     }
   };
 
+  // Add this function to remove ghost drag image
+  const handleDragStart = (event) => {
+    const emptyImg = new Image();
+    emptyImg.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+    event.dataTransfer.setDragImage(emptyImg, 0, 0);
+  };
+
   const handleDragEnd = () => {
     let arr = [];
     for (let i = 0; i < startingPositions.length; i++) {
@@ -223,9 +230,9 @@ export default function HomeRoundCarousel() {
                 className={style.sectionBackground}
                 style={{
                   backgroundColor: randomColors[index],
-
                 }}
                 draggable="true"
+                onDragStart={handleDragStart}
                 onDrag={movingPositioning}
                 onDragEnd={handleDragEnd}
               ></div>
@@ -243,5 +250,4 @@ export default function HomeRoundCarousel() {
         ))}
     </div>
   );
-  
 }
