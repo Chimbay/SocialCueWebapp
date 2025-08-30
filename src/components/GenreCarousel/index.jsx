@@ -43,7 +43,7 @@ export default function GenreCarousel({ objectArr }) {
   function calculateSlideCount() {
     return Math.ceil(
       storyChildrenCountRef.current /
-        (genreWidthRef.current / storyWidthRef.current)
+        (genreWidthRef.current / storyWidthRef.current),
     );
   }
   function calculateGenreCount() {
@@ -96,12 +96,8 @@ export default function GenreCarousel({ objectArr }) {
   }
   return (
     <div className={style.genre}>
-      <Link
-        className={style.genreTitle}
-        to={`/Stories/genres/${objectArr.genrePath}`}
-      >
-        <h2>Genre</h2>
-      </Link>
+      <h2>Story List</h2>
+
       <div className={style.genreInner}>
         <button className={style.previousButton} onClick={previous}>
           previous
