@@ -57,7 +57,8 @@ export default function StoryLayout() {
   // Fetch the story
   useEffect(() => {
     const dir = pathFetch.find((dir) => dir.storyID === pathID);
-    console.log("hello")
+
+    console.log("hello");
     if (dir) {
       setStory(dir);
       setCurrentPageNumber(0);

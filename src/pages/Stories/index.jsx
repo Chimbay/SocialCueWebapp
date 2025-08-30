@@ -8,7 +8,6 @@ import style from './index.module.css';
 export default function Stories() {
   const location = useLocation();
   const isRootPath = location.pathname === '/Stories';
-
   const numGenres = 3;
   const numStories = 9;
 
@@ -32,6 +31,7 @@ export default function Stories() {
 
   return (
     <section className={style.mainBody}>
+<<<<<<< HEAD
       {isRootPath ? (
         <>
           <div className={style.introduction}>
@@ -60,6 +60,30 @@ export default function Stories() {
       ) : (
         <Outlet />
       )}
+=======
+      <div className={style.introduction}>
+        <div className={style.introductionImage}>
+          <img src={heroTag} alt="Hero"></img>
+        </div>
+        <h1 className={style.introductionText}>
+          Let the stories wander your mind!
+        </h1>
+        <p
+          className={style.introductionText}
+          id={style.introductionTextDescription}
+        >
+          Take a wild ride into the adventure of your favorite stories!
+        </p>
+      </div>
+
+      <div className={style.storySection}>
+        <div className={style.genreSection}>
+          {genres.map((genre, index) => (
+            <GenreCarousel objectArr={genre} key={index} />
+          ))}
+        </div>
+      </div>
+>>>>>>> 19d6859933539bda2c5c65be1b7167ec18b3a2ea
     </section>
   );
 }

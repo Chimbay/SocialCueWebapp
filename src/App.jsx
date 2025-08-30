@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+
 import HomePage from "./pages/HomePage";
 import TypesOfEmotions from "./pages/TypesOfEmotions";
 import Stories from "./pages/Stories";
@@ -19,10 +20,10 @@ function App() {
   return (
     <>
       {/* <Popup /> */}
-      <Navbar /> 
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        
+
         {/* Playground routes - fixed nested routing */}
         <Route path="/playground" element={<Playground />}>
           <Route path="learning/:groundPathID" element={<EmotionExplorer />} />
@@ -30,13 +31,13 @@ function App() {
           <Route path="test/:groundPathID" element={<EmotionTest />} />
           <Route path="account/:formStatus" element={<AccountForm />} />
         </Route>
-        
+
         {/* Main navigation routes */}
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/types-of-emotions" element={<TypesOfEmotions />} />
         <Route path="/scenarios" element={<Scenarios />} />
         <Route path="/camera" element={<Camera />} />
-        
+
         {/* Stories routes - fixed nested routing */}
         <Route path="/stories" element={<Stories />}>
           <Route path="genre" element={<Stories />} />

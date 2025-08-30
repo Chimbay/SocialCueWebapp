@@ -32,6 +32,7 @@ export default function Navbar() {
       setMobNavStyling({ height: "0", padding: "0" });
     }
   }
+
   return (
     <nav>
       <div className={style.upperNav}>

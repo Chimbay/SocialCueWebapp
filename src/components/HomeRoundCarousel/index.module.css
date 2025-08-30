@@ -2,6 +2,7 @@
     position: relative;
     width: 400px;
     height: 400px;
+
     background-color: rgb(0, 0, 0);
     overflow: hidden;
     border-radius: 400px;
@@ -13,11 +14,11 @@
     position: absolute;
     transform-origin: bottom right;
     overflow: hidden;
-
 }
 .sectionBackground {
     width: 400px;
     height: 400px;
+
     position: absolute;
     transform-origin: bottom right;
 }

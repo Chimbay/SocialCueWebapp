@@ -56,7 +56,7 @@ export default function HomeRoundCarousel() {
   function initialPositioning() {
     const numOfEmotions = Object.keys(images).length;
     const sections = calculateEmotionIntervals();
-    console.log(sections)
+    console.log(sections);
     const startingPositions = positionCalc();
     setStartingPositions(startingPositions);
     setTranslatingPositions(startingPositions);
@@ -85,8 +85,8 @@ export default function HomeRoundCarousel() {
 
         const angleOfRot = sections[i];
         const angleRadiansRot = angleOfRot * (Math.PI / 180);
-        const xRot = x - circle.centerX / 2 * Math.sin(angleRadiansRot);
-        const yRot = y - circle.centerX / 2 * Math.cos(angleRadiansRot);
+        const xRot = x - (circle.centerX / 2) * Math.sin(angleRadiansRot);
+        const yRot = y - (circle.centerX / 2) * Math.cos(angleRadiansRot);
 
         points.push({
           x: x,
@@ -197,10 +197,10 @@ export default function HomeRoundCarousel() {
   // Add this function to remove ghost drag image
   const handleDragStart = (event) => {
     const emptyImg = new Image();
-    emptyImg.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+    emptyImg.src =
+      "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=";
     event.dataTransfer.setDragImage(emptyImg, 0, 0);
   };
-
   const handleDragEnd = () => {
     let arr = [];
     for (let i = 0; i < startingPositions.length; i++) {
@@ -237,7 +237,7 @@ export default function HomeRoundCarousel() {
                 onDragEnd={handleDragEnd}
               ></div>
             </div>
-  
+
             <div
               className={style.images}
               style={{

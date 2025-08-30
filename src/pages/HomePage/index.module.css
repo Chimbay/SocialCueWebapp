@@ -3,10 +3,9 @@
     overflow: hidden;
 }
 .bodyContent {
-
     display: grid;
     grid-template-columns: 1;
-    place-items: center; 
+    place-items: center;
 }
 .progressBar{
     width: fit-content;
