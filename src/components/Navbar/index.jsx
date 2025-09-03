@@ -35,27 +35,28 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className={style.upperNav}>
-        <div className={style.logoContainer}>
+      <div className="flex justify-between m-auto bg-white py-2.5 px-5 max-lg:items-center">
+        <div className="flex items-center">
           <Link to="/">
-            <img className={style.logoImage} src={logo} alt="logo" />
+            <img className="max-md:w-17.5" src={logo} alt="logo" />
           </Link>
           <Link to="/">
-            <img className={style.logoTitle} src={cue} alt="" />
+            <img className="max-md:w-25" src={cue} alt="" />
           </Link>
         </div>
-        <div className={style.accountLoginSignup}>
+        <div className="flex items-center justify-between max-md:hidden">
           <button id={style.signupNav}>Sign up</button>
           <button id={style.loginNav}>Log in</button>
         </div>
         <img
-          id={style.hamburgerMenu}
-          className={style.hamburgerMenu}
+          // className={style.hamburgerMenu}
+          className="hidden w-7.5 h-7.5 max-md:flex max-md:cursor-pointer"
           src={more}
           onClick={handleClick}
         />
       </div>
-      <div className={style.lowerNav}>
+      {/* <div className={style.lowerNav}>*/}
+      <div className="hidden bg-white justify-center px-0 pb-2.5 md:flex lg:px-5 lg:pb-2.5 lg:justify-start">
         {btnInfo.map((info, index) => (
           <NavbarButton
             cn={style[info.cn]}
@@ -66,8 +67,7 @@ export default function Navbar() {
         ))}
       </div>
       <div
-        id={style.mobileNavbar}
-        className={style.mobileNav}
+        className="absolute w-screen h-0 bg-neutral-100 flex flex-col overflow-y-hidden z-50 transition-all duration-300"
         style={mobNavStyling}
       >
         {btnInfo.map((info, index) => (
