@@ -266,7 +266,7 @@ Drigas, Athanasios, and Eleni Mitsea. "8 pillars x 8 layers model of metacogniti
 [issues-shield]: https://img.shields.io/github/issues/Chimbay/SocialCueWebapp.svg?style=for-the-badge
 [issues-url]: https://github.com/Chimbay/SocialCueWebapp/issues
 [license-shield]: https://img.shields.io/github/license/Chimbay/SocialCueWebapp.svg?style=for-the-badge
-[license-url]: https://github.com/Chimbay/SocialCueWebapp/blob/master/LICENSE.txt
+[license-url]: https://github.com/Chimbay/SocialCueWebapp/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/anthony-chimbay
 [product-screenshot]: images/screenshot.png
