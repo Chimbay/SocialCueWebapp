@@ -1,21 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import style from "./index.module.css";
+import Webcam from "../../components/Webcam";
 
 export default function Camera() {
   const [clicked, setClicked] = useState(false);
+  const [emotion, setEmotion] = useState(null);
+  const buttonRef = useRef(null);
 
   return (
     <div className={style.mainContent}>
-      <div className={style.leftSide}>
-        <div className={style.webcam}></div>
-        <button
-          className={style.buttonWebcam}
-          onClick={() => setClicked(!clicked)}
-        ></button>
+      <div className={style.webcamContainer}>
+        <Webcam emotionDetection={emotion} triggerButton={buttonRef} />
       </div>
-
-      <div className={style.rightSide}></div>
+      <button
+        ref={buttonRef}
+        className={style.webcamButton}
+        id={style.webcamButton}
+        onClick={() => setClicked(!clicked)}
+      >
+        Start
+      </button>
     </div>
   );
 }

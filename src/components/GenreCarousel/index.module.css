@@ -23,14 +23,8 @@
   transition: transform 500ms ease-in-out;
 }
 
-#in {
-}
-
 #out {
   background-color: yellow;
-}
-
-.storyLink {
 }
 
 .storyImage {
@@ -40,10 +34,15 @@
 
 .previousButton {
   margin-right: 5px;
+  padding: 0;
+  border: none;
+  background: none;
 }
-
 .forwardButton {
   margin-left: 5px;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 @media screen and (max-width: 1020px) {
@@ -53,4 +52,10 @@
   .storyImage {
     width: 200px;
   }
+}
+
+.imageButton {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
 }

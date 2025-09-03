@@ -1,25 +1,20 @@
 .mainContent {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    margin: 10px;
 }
-
-.leftSide {
-  margin: 0 auto;
-  width: 400px;
+.webcamContainer {
+    margin: auto;
 }
-
-.webcam {
-  height: 300px;
-}
-
-.buttonWebcam {
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.rightSide {
-  width: 600px;
+.webcamButton {
+    margin: auto;
+    width: 300px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #FFAC1C;
+    border-radius: 15px;
+    color: inherit;
+    text-shadow: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
 }

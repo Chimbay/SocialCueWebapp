@@ -8,6 +8,9 @@ import image2 from "./images/page1.png";
 import image3 from "./images/page2.png";
 import image4 from "./images/conclusion.png";
 
+import leftArrow from "./images/arrowLeft.png";
+import rightArrow from "./images/arrowRight.png";
+
 const pathFetch = [
   {
     storyID: "story00",
@@ -114,7 +117,7 @@ export default function StoryLayout() {
     setTimeout(async () => {
       setAnswered(false);
       flipPageOver();
-    }, 1000);
+    }, 3000);
   }
   function isIncorrect() {
     setAnsweredCorrectly((answer) => (answer = false));
@@ -176,7 +179,11 @@ export default function StoryLayout() {
           </p>
         )}
         {/* Components */}
-        {webcamActive && <Webcam emotionDetection={checkAnswer} />}
+        {webcamActive && (
+          <div className={style.webcamContainer}>
+            <Webcam emotionDetection={checkAnswer} />
+          </div>
+        )}
         {answered && <ShowCaseAnswer />}
         <div className={style.buttonContainer}>
           <button
@@ -184,14 +191,14 @@ export default function StoryLayout() {
             id={style.pagebutton}
             onClick={flipPageBack}
           >
-            Go back
+            <img className={style.buttonImage} src={leftArrow} />
           </button>
           <button
             className={style.forwardButton}
             id={style.pagebutton}
             onClick={flipPageOver}
           >
-            Next
+            <img className={style.buttonImage} src={rightArrow} />
           </button>
         </div>
       </div>
@@ -226,35 +233,16 @@ export default function StoryLayout() {
         <div className={style.storySummary}>
           <h3 className={style.storyTitle}>Description</h3>
           <p className={style.description}>
-            "In a vibrant neighborhood, the Henderson family's home radiates
-            with the laughter of Emma, Jack, and Lily, who embark on imaginative
-            adventures in their backyard. Led by Emma's fearless spirit, Jack's
-            playful antics, and Lily's enchanting imagination, their summer days
-            become extraordinary tales of exploration and camaraderie, creating
-            cherished memories that echo with the timeless joy of childhood.
-            Through their boundless adventures and unbreakable bonds, the
-            Henderson family's home becomes a sanctuary of laughter and love,
-            where every moment is an invitation to celebrate the magic of
-            togetherness."
+            This charming tale follows Sammy through a day of small but magical
+            discoveries in the forest. From the golden glow of his beloved acorn
+            tree, brimming with ripe treasures, to the gentle wonder of a hidden
+            firefly gathering, Sammy’s journey captures the joy of curiosity and
+            the beauty of nature’s surprises. With each moment, his heart fills
+            with delight—whether in awe at abundance or enchanted by the glow of
+            newfound friends. As twilight settles, Sammy rests on his favorite
+            branch, reflecting on a day touched by wonder, peace, and the quiet
+            magic of the forest.
           </p>
-        </div>
-
-        <div className={style.storySuggestions}>
-          <h3 className={style.storyTitle}>Stories that are similar</h3>
-          <div className={style.display}>
-            <div className={style.displayImage}>
-              <img src="../images/woman.jpeg" alt="A woman and her library" />
-              <p>A woman and her library</p>
-            </div>
-            <div className={style.displayImage}>
-              <img src="../images/dog.jpeg" alt="Let's go to space!" />
-              <p>Let's go to space!</p>
-            </div>
-            <div className={style.displayImage}>
-              <img src="../images/girl.jpeg" alt="My Kingdom" />
-              <p>My Kingdom</p>
-            </div>
-          </div>
         </div>
       </div>
     </>

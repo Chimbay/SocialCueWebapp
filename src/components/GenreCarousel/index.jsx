@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./index.module.css";
+import leftArrow from "./arrowLeft.png";
+import rightArrow from "./arrowRight.png";
 
 export default function GenreCarousel({ objectArr }) {
   // State variables
@@ -100,7 +102,11 @@ export default function GenreCarousel({ objectArr }) {
 
       <div className={style.genreInner}>
         <button className={style.previousButton} onClick={previous}>
-          previous
+          <img
+            className={style.imageButton}
+            src={leftArrow}
+            alt="Left button arrow"
+          />
         </button>
         <div
           className={style.genreStories}
@@ -140,7 +146,11 @@ export default function GenreCarousel({ objectArr }) {
           ))}
         </div>
         <button className={style.forwardButton} onClick={forward}>
-          forward
+          <img
+            className={style.imageButton}
+            src={rightArrow}
+            alt="Right button arrow"
+          />
         </button>
       </div>
     </div>

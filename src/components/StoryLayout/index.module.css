@@ -1,186 +1,213 @@
 body {
-  position: relative;
+    position: relative;
 }
 
 /* For story scenery */
 .storyScenery {
-  position: relative;
-  margin: 10px auto;
-  width: fit-content;
-  text-align: center;
+    position: relative;
+    margin: 10px auto;
+    width: fit-content;
+    text-align: center;
 }
 
 .storyImage {
-  width: 95vw;
-  height: 95vh;
-  display: block;
+    width: 95vw;
+    height: 95vh;
+    display: block;
 }
 
 .emotionAnswer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  animation: grow 1s forwards;
-  font-size: 0; /* Start small */
-  opacity: 0; /* Start invisible */
+    animation: grow 1s forwards;
+    font-size: 0; /* Start small */
+    opacity: 0; /* Start invisible */
 }
 @keyframes grow {
-  from {
-    font-size: 0;
-    opacity: 0;
-  }
-  to {
-    font-size: 2em; /* End size */
-    opacity: 1;
-  }
-}
-
-.buttonContainer {
-  position: absolute;
-  top: 0;
-  right: 0;
+    from {
+        font-size: 0;
+        opacity: 0;
+    }
+    to {
+        font-size: 2em; /* End size */
+        opacity: 1;
+    }
 }
 
 .storyText {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-  width: 100%;
-  font-size: 33px;
-  color: #fec04e;
-  text-shadow: 3px 1px #8c67b6, 2px 1px #8c67b6;
-  background-color: rgba(0, 0, 0, 0.415);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 100%;
+    font-size: 33px;
+    color: #fec04e;
+    text-shadow:
+        3px 1px #8c67b6,
+        2px 1px #8c67b6;
+    background-color: rgba(0, 0, 0, 0.415);
 }
 
+.webcamContainer {
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
 #webcamButton {
-  border: 1px solid rgb(0, 0, 0);
-  background-color: #fedfdf;
-  border-radius: 15px;
-  color: inherit;
-  text-shadow: inherit;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #fedfdf;
+    border-radius: 15px;
+    color: inherit;
+    text-shadow: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
 }
 
 #answer {
-  position: absolute;
-  top: 450px;
-  right: 500px;
-  color: #000000;
-  text-shadow: 3px 1px #fffcfc, 2px 1px #8c67b6;
+    position: absolute;
+    top: 450px;
+    right: 500px;
+    color: #000000;
+    text-shadow:
+        3px 1px #fffcfc,
+        2px 1px #8c67b6;
 }
 
 .fade {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0;
-  z-index: 1;
-  transition: opacity 2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 2s;
 }
 
 .fadeIn {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 .fadeOut {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* For story description */
 .storyDescription {
-  margin-bottom: 0px;
-  background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 10px;
-  padding: 20px;
-}
-
-.storyTitle {
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.storyInfo {
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.label {
-  font-weight: bold;
-}
-
-.description {
-  text-align: justify;
-}
-
-.emotionList {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-gap: 10px;
-  border-bottom: 1px solid black;
-  padding: 10px;
-}
-
-.emotionPresent {
-  text-align: center;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 5px;
-}
-
-.display {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-gap: 10px;
-}
-
-.display div {
-  text-align: center;
-}
-
-.display img {
-  width: 90%;
-}
-
-.display p {
-  font-weight: bold;
-  text-align: center;
-}
-
-.storySummary {
-  padding: 10px;
-}
-
-.storySuggestions {
-  padding: 10px;
-}
-
-@media screen and (max-width: 1400px) {
-  .storyDescription {
     margin-bottom: 0px;
     background-color: white;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-gap: 10px;
     padding: 20px;
-  }
+}
 
-  .storySummary {
+.storyTitle {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.storyInfo {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.label {
+    font-weight: bold;
+}
+
+.description {
+    text-align: justify;
+}
+
+.emotionList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 10px;
     border-bottom: 1px solid black;
-  }
-
-  .storyDetails {
     padding: 10px;
-    border-bottom: 1px solid black;
-  }
+}
+
+.emotionPresent {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.display {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 10px;
+}
+
+.display div {
+    text-align: center;
+}
+
+.display img {
+    width: 90%;
+}
+
+.display p {
+    font-weight: bold;
+    text-align: center;
+}
+
+.storySummary {
+    padding: 10px;
+}
+
+.storySuggestions {
+    padding: 10px;
+}
+
+@media screen and (max-width: 1400px) {
+    .storyDescription {
+        margin-bottom: 0px;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        padding: 20px;
+    }
+
+    .storySummary {
+        border-bottom: 1px solid black;
+    }
+
+    .storyDetails {
+        padding: 10px;
+        border-bottom: 1px solid black;
+    }
+}
+
+.backButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.forwardButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.buttonImage {
+    width: 30%;
+    height: auto;
 }

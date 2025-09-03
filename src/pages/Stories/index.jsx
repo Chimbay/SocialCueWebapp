@@ -2,7 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import React from 'react';
 import GenreCarousel from '../../components/GenreCarousel';
 import heroTag from './hero.png';
-import sixfour from './600400.png';
+import sixfour from './autumn.png';
 import style from './index.module.css';
 
 export default function Stories() {
